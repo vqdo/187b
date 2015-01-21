@@ -1,16 +1,47 @@
-var app = angular.module('beta', [], function($routeProvider, $locationProvider) {
-  $routeProvider.when('/home', {
-    templateUrl: '/partials/home',
-    controller: HomeController
-  });
-  // When you put /home, it also automatically handles /home/ as well
-  $routeProvider.when('/login', {
-    templateUrl: '/partials/login',
-    controller: LoginController
-  });
-  $routeProvider.otherwise( { redirectTo: '/login'} );
+'use strict';
 
-  // configure html5 to get links working
-  // If you don't do this, you URLs will be base.com/#/home rather than base.com/home
-  $locationProvider.html5Mode(true);
-});
+/* App Module */
+
+var uis = angular.module('uis', [
+  'ngRoute',
+
+  'uisControllers',
+  // 'uisFilters',
+  'uisServices',
+  'uisAnimations'
+]);
+
+console.log("HELLO!");
+uis.config(['$routeProvider',
+  function($routeProvider, $locationProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: 'partials/home.html',
+        controller: 'HomePageCtrl'
+      }).    
+      when('/about', {
+        templateUrl: 'partials/about.html',
+        controller: 'AboutPageCtrl'
+      }).      
+      when('/calendar', {
+        templateUrl: 'partials/calendar.html',
+        controller: 'CalendarPageCtrl'
+      }).      
+      when('/conference', {
+        templateUrl: 'partials/conference.html',
+        controller: 'ConferencePageCtrl'
+      }).      
+      when('/recruiting', {
+        templateUrl: 'partials/recruiting.html',
+        controller: 'RecruitingPageCtrl'
+      }).
+      when('/contact', {
+        templateUrl: 'partials/contact.html',
+        controller: 'ContactPageCtrl'
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
+      
+      //$locationProvider.html5Mode(true);      
+  }]);

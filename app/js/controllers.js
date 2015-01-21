@@ -9,8 +9,8 @@ uisControllers.controller('HomePageCtrl', ['$scope',
     
   }]);
 
-uisControllers.controller('LeadershipPageCtrl', ['$scope', 
-  function($scope, LeadershipPage) {
+uisControllers.controller('RecruitingPageCtrl', ['$scope', 
+  function($scope, RecruitingPage) {
     
   }]);
 
@@ -18,6 +18,24 @@ uisControllers.controller('ContactPageCtrl', ['$scope',
   function($scope, ContactPage) {
 
   }]);
+
+uisControllers.controller('CalendarPageCtrl', ['$scope', 
+  function($scope, CalendarPage) {
+
+  }]);
+
+
+uisControllers.controller('ConferencePageCtrl', ['$scope', 
+  function($scope, ConferencePage) {
+
+  }]);
+  
+uisControllers.controller('AboutPageCtrl', ['$scope', 
+  function($scope, AboutPage) {
+
+  }]);
+  
+
 
 // phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
 //   function($scope, $routeParams, Phone) {
