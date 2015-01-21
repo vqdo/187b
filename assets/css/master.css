@@ -66,7 +66,7 @@ table {
  }
  header h1, header a {
     color: #e0ffff;
-    font: normal 20px Arial, sans-serif;     
+    font: normal 20px 'Gotham Round', Arial, sans-serif;     
  }
  header nav {
     float: right;
@@ -100,16 +100,16 @@ table {
      text-align: center;
  }
  .panel-text h2 {
-     font: bold 72px Arial, sans-serif;
+     font: normal 72px 'Gotham Round', Arial, sans-serif;
  }
  .panel-text p {
-     font: normal 24px Arial, sans-serif;
+     font: normal 24px 'Gotham Round', Arial, sans-serif;
  }
  .panel-intro button {
      background: transparent;
      border: 1px solid #FFF;
      color: #FFF;
-     font: normal 32px Arial, sans-serif;
+     font: normal 32px 'Gotham Round', sans-serif;
      padding: 10px 20px;
      margin: 20px 0;
  }
