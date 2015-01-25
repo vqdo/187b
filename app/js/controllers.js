@@ -15,6 +15,15 @@ uisControllers.controller('HomePageCtrl', ['$scope',
         'background-size': 'cover'
       });
     }
+
+    $scope.icons = [
+      {},
+      {},
+      {}
+    ]
+
+    $scope.displayIcons = false;
+
   }])
   .directive("uisOpacity", function ($window) {
       return function(scope, element, attrs) {
@@ -27,6 +36,27 @@ uisControllers.controller('HomePageCtrl', ['$scope',
               scope.$apply(); 
           });        
       };
+  })
+  .directive('uisShowOnScroll', function($window, $timeout) {
+    return function(scope, element, attrs) {
+
+      var onScrollFn = function() {
+        var threshold = 100;;
+
+        if(this.pageYOffset > threshold) {
+          scope.displayIcons = true;
+          scope.$apply();      
+        } 
+      }
+
+      angular.element($window).on('scroll', onScrollFn);
+
+      // If the user's screen is too big or he never scrolls, display icons
+      $timeout(function() {
+        angular.element($window).off('scroll', onScrollFn);
+        scope.displayIcons = true;
+      }, 5000);
+    }
   });
 
 uisControllers.controller('RecruitingPageCtrl', ['$scope', 
