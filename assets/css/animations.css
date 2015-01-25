@@ -1,0 +1,48 @@
+/*********************************************
+ * Animations
+ *********************************************/
+
+.view.ng-leave {
+/*  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+  opacity: 1;*/
+  opacity: 0;
+}
+
+/*
+  We're using CSS keyframe animations for when
+  the leave event is triggered for the element
+  that has the .repeated-item class
+*/
+.view.ng-enter {
+  -webkit-animation:0.5s fadeIn;
+  -moz-animation:0.5s fadeIn;
+  -o-animation:0.5s fadeIn;
+  animation:0.5s fadeIn;
+}
+
+@keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+/*
+  Unfortunately each browser vendor requires
+  its own definition of keyframe animation code...
+*/
+@-webkit-keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@-moz-keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@-o-keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}

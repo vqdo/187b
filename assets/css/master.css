@@ -50,7 +50,9 @@ table {
 /*********************************************
  * Structure
  *********************************************/
- 
+ body {
+    min-height: 1000px;
+ }
 .container {
     margin: auto;
      width: 1024px;
@@ -90,9 +92,11 @@ table {
  *********************************************/
  
  .panel-intro {
-     background: #CCC;
-     border-bottom: 20px solid #fbb548;
-     height: 600px;
+     background: radial-gradient(500px at center, rgba(0, 111, 175, 0.4),  rgba(21, 28, 48, 0.4)),
+                url('../img/attention.jpg') 50% 20%;
+     background-size: cover;
+     border-bottom: 15px solid #fbb548;
+     height: 550px;
  }
  .panel-text {
      color: #FFF;
@@ -100,7 +104,8 @@ table {
      text-align: center;
  }
  .panel-text h2 {
-     font: normal 72px 'Gotham Round', Arial, sans-serif;
+    color: #fbb548;
+    font: normal 72px 'Gotham Round', Arial, sans-serif;
  }
  .panel-text p {
      font: normal 24px 'Gotham Round', Arial, sans-serif;
@@ -113,6 +118,24 @@ table {
      padding: 10px 20px;
      margin: 20px 0;
  }
+
+ .detail-panel {
+    background: #EEE;
+    border-bottom: 15px solid #fbb548;;
+    min-height: 150px;
+ }
+ .detail-container {
+    width: 700px;
+    margin: auto;
+ }
+ .detail-icon {
+    background: #CCC;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    margin: 40px;
+ }
  
 /*********************************************
  * Home
@@ -124,6 +147,7 @@ table {
      /* temp */ margin-top: 500px;
  }
  
+
  /**
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
