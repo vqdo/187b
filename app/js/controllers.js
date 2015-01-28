@@ -7,11 +7,11 @@ var uisControllers = angular.module('uisControllers', []);
 uisControllers.controller('HomePageCtrl', ['$scope', 
   function($scope, HomePage) {
     $scope.minOpacity = 0.4;
-    $scope.targetDelta = 0.6; // minOpacity + targetDelta = max opacity
+    $scope.targetDelta = 0.3; // minOpacity + targetDelta = max opacity
     $scope.onScroll = function(element, opacity) {
       element.css({
         'background':  
-          'radial-gradient(500px at center, rgba(0, 111, 175, ' + ((opacity-0.4)/2 + 0.4) + '), rgba(21, 28, 48, ' + opacity + ')), url("../../assets/img/attention.jpg") 50% 20%',
+          'linear-gradient(rgba(41, 155, 220, ' + opacity + '), rgba(41, 155, 220, ' + opacity + ')), url("../../assets/img/writing.jpg") 50% 20%',
         'background-size': 'cover'
       });
     }

@@ -92,8 +92,8 @@ table {
  *********************************************/
  
  .panel-intro {
-     background: radial-gradient(500px at center, rgba(0, 111, 175, 0.4),  rgba(21, 28, 48, 0.4)),
-                url('../img/attention.jpg') 50% 20%;
+     background: linear-gradient(rgba(41, 155, 220, 0.3), rgba(41, 155, 220, 0.4)),
+                url('../img/writing.jpg') 50% 40%;
      background-size: cover;
      border-bottom: 15px solid #fbb548;
      height: 600px;
