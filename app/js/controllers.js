@@ -11,7 +11,7 @@ uisControllers.controller('HomePageCtrl', ['$scope',
     $scope.onScroll = function(element, opacity) {
       element.css({
         'background':  
-          'linear-gradient(rgba(41, 155, 220, ' + opacity + '), rgba(41, 155, 220, ' + opacity + ')), url("../../assets/img/writing.jpg") 50% 20%',
+          'linear-gradient(rgba(41, 155, 220, ' + opacity + '), rgba(41, 155, 220, ' + opacity + ')), url("../../assets/img/writing.jpg") 50% 40%',
         'background-size': 'cover'
       });
     }

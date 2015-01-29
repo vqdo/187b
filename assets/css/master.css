@@ -68,7 +68,7 @@ table {
  }
  header h1, header a {
     color: #e0ffff;
-    font: normal 20px 'Gotham Round', Arial, sans-serif;     
+    font: normal 20px 'Gotham Condensed', 'Droid Sans' Helvetica, Arial, sans-serif;     
  }
  header nav {
     float: right;
@@ -97,26 +97,51 @@ table {
      background-size: cover;
      border-bottom: 15px solid #fbb548;
      height: 600px;
+     text-align: center;     
  }
  .panel-text {
      color: #FFF;
-     padding-top: 200px;
+     display: inline-block;
+     padding-top: 160px;
      text-align: center;
+     width: 530px;
  }
  .panel-text h2 {
+    border: 1px solid #FFF;
+    color: #EEE;
+    display: inline-block;
+    font: 100 140px 'Gotham Condensed', Helvetica, Arial, sans-serif;
+    padding: 0 15px;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+ }
+ .panel-text strong {
     color: #fbb548;
-    font: normal 72px 'Gotham Round', Arial, sans-serif;
+    font-weight: normal;
+    letter-spacing: 0;
  }
  .panel-text p {
-     font: normal 24px 'Gotham Round', Arial, sans-serif;
+    background: rgba(34, 175, 241, 0.5);
+    margin: 10px 0 0 0;
+    padding: 20px;
+    font: normal 16px 'Droid Sans', Helvetica, Arial, sans-serif;
+    letter-spacing: 1pxpx;
+    line-height: 1.5;
+    text-align: left;
+ }
+ .panel-text p strong {
+    color: #EEE;
+    font-weight: bold;
  }
  .panel-intro button {
-     background: transparent;
-     border: 1px solid #FFF;
-     color: #FFF;
-     font: normal 32px 'Gotham Round', sans-serif;
-     padding: 10px 20px;
-     margin: 20px 0;
+     background: #22aee1;
+     border: 0;
+     color: #0e5686;
+     font: bold 14px 'Droid Sans', Helvetica, Arial sans-serif;
+     padding: 5px 20px;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+     width: 100%;
  }
 
  .detail-panel {

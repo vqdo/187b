@@ -1,19 +1,19 @@
 @font-face {
-  font-family: 'Gotham Round';
-  src: url('../fonts/GothamRnd-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/GothamRnd-Medium.otf') format('opentype')
+  font-family: 'Gotham Condensed';
+  src: url('../fonts/GothamCondensed-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/GothamCondensed-Medium.otf') format('opentype')
 }
 
 @font-face {
-    font-family: 'Gotham Round';
-    src: url('../fonts/GothamRnd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/GothamRnd-Bold.otf') format('opentype');
+    font-family: 'Gotham Condensed';
+    src: url('../fonts/GothamCondensed-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/GothamCondensed-Bold.otf') format('opentype');
     font-weight: bold;
 }
 
 @font-face {
-    font-family: 'Gotham Round';
-    src: url('../fonts/GothamRnd-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/GothamRnd-Light.otf') format('opentype');
+    font-family: 'Gotham Condensed';
+    src: url('../fonts/GothamCondensed-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/GothamCondensed-Light.otf') format('opentype');
     font-weight: 100; /* Light */
 }
