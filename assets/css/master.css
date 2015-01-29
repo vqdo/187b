@@ -64,7 +64,7 @@ table {
  
  header {
      background: #0e5686;
-     border-bottom: 20px solid #22aee1;
+     border-bottom: 5px solid #22aee1;
  }
  header h1, header a {
     color: #e0ffff;
