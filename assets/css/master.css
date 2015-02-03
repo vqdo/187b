@@ -93,7 +93,7 @@ table {
  *********************************************/
  
  .panel-intro {
-     background: linear-gradient(rgba(41, 155, 220, 0.3), rgba(41, 155, 220, 0.4)),
+     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
                 url('../img/writing.jpg') 50% 40%;
      background-size: cover;
      border-bottom: 15px solid #fbb548;
@@ -126,7 +126,7 @@ table {
     margin: 10px 0 0 0;
     padding: 20px;
     font: normal 16px 'Droid Sans', Helvetica, Arial, sans-serif;
-    letter-spacing: 1pxpx;
+    letter-spacing: 1px;
     line-height: 1.5;
     text-align: left;
  }
@@ -146,8 +146,6 @@ table {
  }
 
  .detail-panel {
-    background: #EEE;
-    border-bottom: 15px solid #fbb548;;
     min-height: 150px;
  }
  .detail-container {

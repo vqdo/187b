@@ -35,12 +35,14 @@ uisControllers.controller('FooterCtrl', ['$scope', function($scope) {
 });
 uisControllers.controller('HomePageCtrl', ['$scope', 
   function($scope, HomePage) {
-    $scope.minOpacity = 0.4;
-    $scope.targetDelta = 0.3; // minOpacity + targetDelta = max opacity
+    $scope.minOpacity = 0.3;
+    $scope.targetDelta = 0.4; // minOpacity + targetDelta = max opacity
     $scope.onScroll = function(element, opacity) {
+      var overlay = '0, 0, 0';
+      
       element.css({
         'background':  
-          'linear-gradient(rgba(41, 155, 220, ' + opacity + '), rgba(41, 155, 220, ' + opacity + ')), url("../../assets/img/writing.jpg") 50% 40%',
+          'linear-gradient(rgba(' + overlay + ',' + opacity + '), rgba(' + overlay + ', ' + opacity + ')), url("../../assets/img/writing.jpg") 50% 40%',
         'background-size': 'cover'
       });
     }
