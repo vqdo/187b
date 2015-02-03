@@ -4,6 +4,35 @@
 
 var uisControllers = angular.module('uisControllers', []);
 
+uisControllers.controller('NavCtrl', ['$scope', 
+  function($scope, Nav) {
+    
+  }]
+);
+
+uisControllers.controller('FooterCtrl', ['$scope', function($scope) {
+  
+  
+}]).directive('googleMap', function() {
+  return function($scope, $element) {
+    // UCSD Coordinates
+    var coordinates = { lat: 32.8810, long: -117.2388 };
+    
+    // Create map centering on coordinates
+    var mapOptions = {
+      center: new google.maps.LatLng(coordinates.lat, coordinates.long),
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map($element[0], mapOptions); 
+    
+    // Drop a marker
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(coordinates.lat, coordinates.long),
+      map: map
+    });
+  }
+});
 uisControllers.controller('HomePageCtrl', ['$scope', 
   function($scope, HomePage) {
     $scope.minOpacity = 0.4;
@@ -57,8 +86,21 @@ uisControllers.controller('HomePageCtrl', ['$scope',
         scope.displayIcons = true;
       }, 5000);
     }
-  });
-
+  }).directive('lockNav', function($window) {
+		console.log("Directive!!");
+		return function(scope, element, attrs) {
+          angular.element($window).bind('scroll', function() {
+              var delta = this.pageYOffset;
+              if(delta > element[0].height) {
+              	element.addClass('fixed');
+              } else {
+              	element.removeClass('fixed');
+              }
+              
+              scope.$apply(); 
+          });   			
+		}
+	});
 uisControllers.controller('RecruitingPageCtrl', ['$scope', 
   function($scope, RecruitingPage) {
     

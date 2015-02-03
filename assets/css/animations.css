@@ -32,6 +32,16 @@
   animation:1.5s fadeIn;  
 }
 
+/********
+ Nav bar 
+ */
+
+header {
+}
+header.fixed {
+  position: fixed;
+}
+
 /*
   We're using CSS keyframe animations for when
   the leave event is triggered for the element
