@@ -6,9 +6,29 @@ var uisControllers = angular.module('uisControllers', []);
 
 uisControllers.controller('NavCtrl', ['$scope', 
   function($scope, Nav) {
-    
-  }]
-);
+    $scope.fixedClassName = 'fixed';
+  }]).directive("locknav", function ($window) {
+      return function(scope, element, attrs) {
+        console.log(scope.cn);
+          // var activeDistance = 400;     
+          angular.element($window).bind("scroll", function() {
+            var threshold = element[0].scrollTop + element[0].offsetHeight;
+            var buffer = 20;
+            if(this.pageYOffset > (threshold + buffer)) {
+              console.log(scope.fixedClassName);
+              element.addClass(scope.fixedClassName);
+            } else {
+              element.removeClass(scope.fixedClassName);
+            }
+
+          //     var delta = Math.max(0, this.pageYOffset - element[0].scrollTop);
+          //     var opacity = Math.min(1, scope.minOpacity + (delta * scope.targetDelta)/500);
+          //     scope.onScroll(element, opacity);
+        
+            scope.$apply(); 
+          });        
+      };
+});
 
 uisControllers.controller('FooterCtrl', ['$scope', function($scope) {
   
