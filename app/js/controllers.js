@@ -7,6 +7,7 @@ var uisControllers = angular.module('uisControllers', []);
 uisControllers.controller('NavCtrl', ['$scope', 
   function($scope, Nav) {
     $scope.fixedClassName = 'fixed';
+    console.log("!");
   }]).directive("locknav", function ($window) {
       return function(scope, element, attrs) {
         console.log(scope.cn);

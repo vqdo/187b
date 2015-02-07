@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?187b-vqdo1.c9\.io$ [NC]
+RewriteCond %{REQUEST_URI} !\.(png|gif|jpg|css|otf|ttf|eot)$
+RewriteRule !^app/ /app%{REQUEST_URI} [L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !index
+RewriteRule (.*) index.html [L]
+

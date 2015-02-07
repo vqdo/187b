@@ -3,6 +3,7 @@
 <html lang="en" ng-app="uis">
 	<head>
 		<title>UCSD Undergraduate Investment Society</title>
+		<base href="/app">
 
 		<!-- ANGULARJS -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
@@ -11,9 +12,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.js"></script>			
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="../assets/css/font.css">
-		<link rel="stylesheet" href="../assets/css/master.css">
-		<link rel="stylesheet" href="../assets/css/animations.css">		
+		<link rel="stylesheet" href="assets/css/font.css">
+		<link rel="stylesheet" href="assets/css/master.css">
+		<link rel="stylesheet" href="assets/css/animations.css">		
 
 		<!-- EXTERNAL -->
 		<script src="https://maps.googleapis.com/maps/api/js"></script>
@@ -28,8 +29,8 @@
 
 	</head>
 	<body>
-		<header locknav ng-controller="NavCtrl">
-			<div class="cf">
+		<header ng-controller="NavCtrl" locknav>
+			<div class="container cf">
 				
 				<h1>UIS</h1>
 				<nav>
@@ -88,9 +89,9 @@
 						<input type="submit" value="Submit"></input>
 					</div>
 				</div>
-				<div class="wrap3 fr">
+				<div class="wrap3 fl">
 					<h1>Contact Us</h1>
-					<p>Blah blah blah address here.</p>
+					<p>Blah blah blah address here</p>
 					<div id="gmap" google-map>
 						
 					</div>

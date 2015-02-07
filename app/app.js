@@ -12,7 +12,7 @@ var uis = angular.module('uis', [
 ]);
 
 console.log("HELLO!");
-uis.config(['$routeProvider',
+uis.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
@@ -43,5 +43,5 @@ uis.config(['$routeProvider',
         redirectTo: '/'
       });
       
-      //$locationProvider.html5Mode(true);      
+      $locationProvider.html5Mode(true);      
   }]);

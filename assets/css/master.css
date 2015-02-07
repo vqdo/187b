@@ -57,14 +57,19 @@ table {
     margin: auto;
      width: 1024px;
 }
+a {
+    text-decoration: none;
+}
 
 /*********************************************
  * Header
  *********************************************/
  
  header {
+     padding: 10px 0;
     position: absolute;
      width: 100%;
+    z-index: 5;
  }
  header h1 {
     display: inline-block;
@@ -72,24 +77,29 @@ table {
  }
  header h1, header a {
     color: #e0ffff;
-    font: normal 24px 'Gotham Condensed', 'Droid Sans' Helvetica, Arial, sans-serif;     
+    font: normal 24px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;     
     text-transform: uppercase;
  }
  header nav {
     float: right;
     text-align: right;
+    padding: 0 10px;
  }
  header li {
      display: inline-block;
  }
  header a {
-    border-bottom: 6px solid transparent ;     
+    border: 1px solid transparent ;     
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
  }
  header a:hover {
-     border-bottom: 6px solid #fbb548 ;
+     border: 1px solid #fbb548 ;
+ }
+ header.fixed a:hover {
+     background: #fbb548;
+     color: #0e5686;
  }
  
  /*********************************************
@@ -107,46 +117,44 @@ table {
  .panel-text {
      color: #FFF;
      display: inline-block;
-     padding-top: 160px;
-     text-align: center;
-     width: 530px;
+     padding-top: 100px;
+     width: 740px;
  }
  .panel-text h2 {
-    border: 1px solid #FFF;
-    color: #EEE;
+    color: #FBB548;
     display: inline-block;
-    font: 100 140px 'Gotham Condensed', Helvetica, Arial, sans-serif;
+    font: normal 128px 'Gotham', Helvetica, Arial, sans-serif;
     padding: 0 15px;
-    text-transform: uppercase;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     letter-spacing: -0.05em;
  }
- .panel-text strong {
-    color: #fbb548;
-    font-weight: normal;
-    letter-spacing: 0;
- }
+
  .panel-text p {
-    background: rgba(34, 175, 241, 0.5);
-    margin: 10px 0 0 0;
-    padding: 20px;
-    font: normal 16px 'Droid Sans', Helvetica, Arial, sans-serif;
+    /*background: rgba(34, 175, 241, 0.5); */
+
+    padding: 10px;
+    font: normal 20px 'Gotham', Helvetica, Arial, sans-serif;
     letter-spacing: 1px;
     line-height: 1.5;
-    text-align: left;
  }
  .panel-text p strong {
     color: #EEE;
     font-weight: bold;
  }
- .panel-intro button {
-     background: #22aee1;
-     border: 0;
-     color: #0e5686;
-     font: bold 14px 'Droid Sans', Helvetica, Arial sans-serif;
-     padding: 5px 20px;
+ .panel-intro .learn-more {
+     /*background: #22aee1;*/
+     border: 1px solid #FFF;
+     color: #FFF;
+     display: inline-block;
+     font: bold 24px 'Droid Sans', Helvetica, Arial sans-serif;
+     margin: 20px 0;
+     padding: 20px;
      letter-spacing: 1px;
      text-transform: uppercase;
-     width: 100%;
+ }
+ .panel-intro .learn-more:hover {
+     background: #FBB548;
+     color: #333;
  }
 
  .detail-panel {
@@ -164,7 +172,45 @@ table {
     border-radius: 150px;
     margin: 40px;
  }
+
+ .upcoming-event{
+     margin: 20px;
+     display: block;
+     float: left;
+     width: 200px;
+     border-right: 1px solid #000;
+     font: normal 14px Arial, sans-serif;
+ }
+ .upcoming-event h3{
+     font: bold 30px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
+     text-align: center;
+     text-transform: uppercase;
+ }
+ .upcoming-event p{
+     line-height: 20px;
+     
+ }
+ .upcoming-event a{
+     line-height: 20px;
+     color: #4FCAE3;
+     text-decoration: none;
+ }
+ .upcoming-event a:hover{
+     color: #7ED4E6;
+     text-decoration: none;
+ }
  
+ .main-feat{
+     max-width:600px;
+     margin: 20px;
+     display: inline;
+     font: normal 14px Arial, sans-serif;
+ }
+ .main-feat h2{
+      font: bold small-caps 48px 'Gotham Condensed', 'Droid Sans' Helvetica, Arial, sans-serif;
+      text-align: center;
+      margin: 0 0 15px;
+ }
 /*********************************************
  * Home
  *********************************************/
