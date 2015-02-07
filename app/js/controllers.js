@@ -4,32 +4,43 @@
 
 var uisControllers = angular.module('uisControllers', []);
 
+
+/************************************************************
+ * Nav Controller
+ ***********************************************************/
+
 uisControllers.controller('NavCtrl', ['$scope', 
   function($scope, Nav) {
     $scope.fixedClassName = 'fixed';
-    console.log("!");
   }]).directive("locknav", function ($window) {
-      return function(scope, element, attrs) {
-        console.log(scope.cn);
-          // var activeDistance = 400;     
+      return function(scope, element, attrs) { 
           angular.element($window).bind("scroll", function() {
             var threshold = element[0].scrollTop + element[0].offsetHeight;
             var buffer = 20;
             if(this.pageYOffset > (threshold + buffer)) {
-              console.log(scope.fixedClassName);
               element.addClass(scope.fixedClassName);
             } else {
               element.removeClass(scope.fixedClassName);
             }
 
-          //     var delta = Math.max(0, this.pageYOffset - element[0].scrollTop);
-          //     var opacity = Math.min(1, scope.minOpacity + (delta * scope.targetDelta)/500);
-          //     scope.onScroll(element, opacity);
-        
             scope.$apply(); 
           });        
       };
 });
+
+/************************************************************
+ * Events Controller
+ ***********************************************************/  
+
+uisControllers.controller('EventsCtrl', ['$scope', 'Events', 
+  function($scope, Events) {
+    var events = Events.get();
+  
+}]);
+
+/************************************************************
+ * Footer Controller
+ ***********************************************************/
 
 uisControllers.controller('FooterCtrl', ['$scope', function($scope) {
   
@@ -54,6 +65,11 @@ uisControllers.controller('FooterCtrl', ['$scope', function($scope) {
     });
   }
 });
+
+/************************************************************
+ * Homepage Controller
+ ***********************************************************/
+
 uisControllers.controller('HomePageCtrl', ['$scope', 
   function($scope, HomePage) {
     $scope.minOpacity = 0.3;
