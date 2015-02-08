@@ -11,37 +11,25 @@
 		<div class="detail-icon" ng-repeat="icon in icons" ng-show="displayIcons" uis-show-on-scroll></div>			
 	</div>
 </div>
-<div class="container">
+<div class="container cf">
     <!-- Upcoming events bar on the left -->
     <div class="upcoming-event">
         <h3>Upcoming Events</h3>
         <div ng-controller="EventsCtrl">
+            <div ng-repeat="event in events">
+                 <!-- Use this area to style each event 
+                      Avoid the <br> tag if possible, use css instead -->
+                
+                 <h4>{{event.summary}}</h4> <br>
+                 Date: {{event.start.dateTime}} <br>
+                 Location: {{event.location}} <br>
+                 Description: {{event.description}} <br>
+                 
+                 <a href="#/calendar">View Calender &raquo;</a><br><br>
+             </div>
+             
         </div>
-        <br>
-        <p>
-            Date:<br>
-            Time:<br>
-            Location:<br>
-            <br>
-            Extra Announcements
-        </p>
-        <a href="#/calendar">View Calender &raquo;</a><br><br>
-        <p>
-            Date:<br>
-            Time:<br>
-            Location:<br>
-            <br>
-            Extra Announcements
-        </p>
-        <a href="#/calendar">View Calender &raquo;</a><br><br>
-        <p>
-            Date:<br>
-            Time:<br>
-            Location:<br>
-            <br>
-            Extra Announcements
-        </p>
-        <a href="#/calendar">View Calender &raquo;</a><br><br>
+      
     </div>
     <!-- Main feature (conference) -->
     <div class="main-feat">

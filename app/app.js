@@ -11,7 +11,6 @@ var uis = angular.module('uis', [
   'uisAnimations'
 ]);
 
-console.log("HELLO!");
 uis.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
     $routeProvider.
@@ -45,3 +44,24 @@ uis.config(['$routeProvider', '$locationProvider',
       
       $locationProvider.html5Mode(true);      
   }]);
+  
+
+// FB Graph Access
+// var ns_uis = (function() {
+//   // Load FB SDK
+//   window.fbAsyncInit = function() {
+//     FB.init({
+//         appId      : '323850914480241',
+//         xfbml      : true,
+//         version    : 'v2.2'
+//       });
+//     };
+  
+//     (function(d, s, id){
+//       var js, fjs = d.getElementsByTagName(s)[0];
+//       if (d.getElementById(id)) {return;}
+//       js = d.createElement(s); js.id = id;
+//       js.src = "//connect.facebook.net/en_US/sdk.js";
+//       fjs.parentNode.insertBefore(js, fjs);
+//     }(document, 'script', 'facebook-jssdk'));  
+// })();

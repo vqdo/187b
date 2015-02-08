@@ -11,6 +11,7 @@ var uisControllers = angular.module('uisControllers', []);
 
 uisControllers.controller('NavCtrl', ['$scope', 
   function($scope, Nav) {
+    console.log("Initializing NavCtrl");
     $scope.fixedClassName = 'fixed';
   }]).directive("locknav", function ($window) {
       return function(scope, element, attrs) { 
@@ -34,7 +35,14 @@ uisControllers.controller('NavCtrl', ['$scope',
 
 uisControllers.controller('EventsCtrl', ['$scope', 'Events', 
   function($scope, Events) {
-    var events = Events.get();
+    $scope.events = [];
+    console.log("About to call events");
+    setTimeout(function() {
+      Events(function(data) {
+        $scope.events = data;
+        console.log(data);
+      });
+    }, 2000);
   
 }]);
 

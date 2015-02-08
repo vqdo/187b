@@ -55,7 +55,7 @@ table {
  }
 .container {
     margin: auto;
-     width: 1024px;
+    width: 1024px;
 }
 a {
     text-decoration: none;
@@ -207,7 +207,7 @@ a {
      font: normal 14px Arial, sans-serif;
  }
  .main-feat h2{
-      font: bold small-caps 48px 'Gotham Condensed', 'Droid Sans' Helvetica, Arial, sans-serif;
+      font: bold small-caps 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
       text-align: center;
       margin: 0 0 15px;
  }
