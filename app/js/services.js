@@ -20,31 +20,51 @@ uisServices.factory('Util', function() {
             }
 
             return s || [];
+        },
+        truncate: function(s, max) {
+            if(s.length > max - 3) {
+                s = s.substr(0, max) + '...';
+            }
+            return s;
         }
     }
 })
+/****
+ * Retrieves contact information and posts to contact.php
+ */
+.factory('Contact', ['$http', 
+    function($http) {
+        return function(info) {
+            //console.log(info);
+            console.log("POSTingg contact form");
+                
+            $http({
+                method: 'POST',
+                url: 'php/mail.php', 
+                data: {
+                    name: info.name,
+                    email: info.email,
+                    message: info.message
+                }
+                
+            })
+            .success(function(data) {
+                console.log("Success!");
+                console.log(data);
+            })
+            .error(function(err) {
+                console.log(err);
+                console.error("Error sending contact form! ");
+            });
+        }
+}])
 .factory('GAuth', 
     function() {
+        console.log(gapi.client);
         gapi.client.setApiKey('AIzaSyAYd_kJIzfJbPkoNdH_fgFDVog1B35cMQ0');
         return gapi.client.load('calendar', 'v3'); //'IzaSyAYd_kJIzfJbPkoNdH_fgFDVog1B35cMQ0'
     }
 )
-/** 
- * Retrieves a Facebook event by ID
- */
-// .factory('FBGraphEvent', [
-//     function() {
-//         return function(id, callback) {
-//             FB.api('/' + id,
-//                 function (response) {
-//                     console.log(response);
-//                     if (response && !response.error) {
-//                         callback(response);
-//                     }
-//                 });
-//         }
-//     }]
-// )
 /**
  * Events service 
  * Returns the latest events from the UIS Google calendar.
@@ -58,9 +78,9 @@ uisServices.factory('Util', function() {
             
             var urls = Util.parseURLs(description);
             var id = null;
-            
             angular.forEach(urls, function(url, i) {
-               if(!id && url.contains('facebook')) {
+                console.log("url: " + url);
+               if(!id && (url.indexOf('facebook') > -1)) {
                    var li = url.split('/')
                    id = url;
                    description = description.replace(url, '');
@@ -73,32 +93,36 @@ uisServices.factory('Util', function() {
         return function(callback, error) {
             
             GAuth.then(function() {
+                console.log("Calendar request");
                 var request = gapi.client.calendar.events.list({
                     calendarId: calendarId
                 });
                 
                 request.then(function(data) {
+                    console.log("Calendar callback: " + data.result.items);
                     var events = [];
                     
                     angular.forEach(data.result.items, function(event, i) {
-                        
+
                         var result = {};
-                        
+
                         var items = parseFBLink(event.description);
+                                                
                         if(items.fbLink != null) {
                             result.fb = items.fbLink;
                             event.description = items.description;
                         } 
                         
-                        result.summary = event.summary;
+                        result.summary = Util.truncate(event.summary, 80);
                         result.time = event.start.dateTime;
                         result.location = event.location;
-                        result.description = event.description;      
+                        result.description = Util.truncate(event.description, 100);      
                                          
                         events.push(result);
+                        console.log(result);
                         
                     });
-                    
+                    console.log(events);
                     callback(events);
                 
                 }, error);

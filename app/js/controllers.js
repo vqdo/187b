@@ -50,10 +50,19 @@ uisControllers.controller('EventsCtrl', ['$scope', 'Events',
  * Footer Controller
  ***********************************************************/
 
-uisControllers.controller('FooterCtrl', ['$scope', function($scope) {
+uisControllers.controller('FooterCtrl', ['$scope', 'Contact', function($scope, Contact) {
+  $scope.form = {};
   
-  
-}]).directive('googleMap', function() {
+  /** 
+  * Collect form information and mail to UIS 
+  */
+  $scope.send = function(info) {
+    if(!info.$invalid) {
+      Contact(info);
+    }
+  }
+}])
+.directive('googleMap', function() {
   return function($scope, $element) {
     // UCSD Coordinates
     var coordinates = { lat: 32.8810, long: -117.2388 };
@@ -72,6 +81,11 @@ uisControllers.controller('FooterCtrl', ['$scope', function($scope) {
       map: map
     });
   }
+})
+.directive('contactForm', function() {
+  return function($scope, $element) {
+    
+  }
 });
 
 /************************************************************
@@ -82,15 +96,7 @@ uisControllers.controller('HomePageCtrl', ['$scope',
   function($scope, HomePage) {
     $scope.minOpacity = 0.3;
     $scope.targetDelta = 0.4; // minOpacity + targetDelta = max opacity
-    $scope.onScroll = function(element, opacity) {
-      var overlay = '0, 0, 0';
-      
-      element.css({
-        'background':  
-          'linear-gradient(rgba(' + overlay + ',' + opacity + '), rgba(' + overlay + ', ' + opacity + ')), url("../../assets/img/writing.jpg") 50% 40%',
-        'background-size': 'cover'
-      });
-    }
+    
 
     $scope.icons = [
       {},
@@ -101,18 +107,6 @@ uisControllers.controller('HomePageCtrl', ['$scope',
     $scope.displayIcons = false;
 
   }])
-  .directive("uisOpacity", function ($window) {
-      return function(scope, element, attrs) {
-          var activeDistance = 400;     
-          angular.element($window).bind("scroll", function() {
-              var delta = Math.max(0, this.pageYOffset - element[0].scrollTop);
-              var opacity = Math.min(1, scope.minOpacity + (delta * scope.targetDelta)/500);
-              scope.onScroll(element, opacity);
-        
-              scope.$apply(); 
-          });        
-      };
-  })
   .directive('uisShowOnScroll', function($window, $timeout) {
     return function(scope, element, attrs) {
 

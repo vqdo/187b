@@ -54,6 +54,16 @@ header.fixed,  .learn-more {
   -o-transition:0.3s linear all;
   transition:0.3s linear all; 
 } 
+header.fixed #logo {
+     height: 50px;
+     padding: 0 10px;
+     
+}
+header.fixed .title {
+  line-height: 50px;
+  padding: 0;
+  width: auto;
+}
 
 /*
   We're using CSS keyframe animations for when
@@ -61,10 +71,10 @@ header.fixed,  .learn-more {
   that has the .repeated-item class
 */
 .view.ng-enter {
-  -webkit-animation:0.5s fadeIn;
-  -moz-animation:0.5s fadeIn;
-  -o-animation:0.5s fadeIn;
-  animation:0.5s fadeIn;
+  -webkit-animation:1.5s fadeIn;
+  -moz-animation:1.5s fadeIn;
+  -o-animation:1.5s fadeIn;
+  animation:1.5s fadeIn;
 }
 
 @keyframes fadeIn {

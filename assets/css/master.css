@@ -50,15 +50,28 @@ table {
 /*********************************************
  * Structure
  *********************************************/
- body {
+body {
     min-height: 1000px;
- }
+}
+body, p {
+    font: normal 14px Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
 .container {
     margin: auto;
     width: 1024px;
 }
+h3 {
+    color: #0e5686;
+    font: normal 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin: 0 0 15px;
+}
 a {
     text-decoration: none;
+}
+#content {
+    min-height: 500px;
 }
 
 /*********************************************
@@ -71,14 +84,12 @@ a {
      width: 100%;
     z-index: 5;
  }
+ header h1, header a {
+    font: normal 24px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;     
+ }
  header h1 {
     display: inline-block;
     float: left;
- }
- header h1, header a {
-    color: #e0ffff;
-    font: normal 24px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;     
-    text-transform: uppercase;
  }
  header nav {
     float: right;
@@ -88,8 +99,12 @@ a {
  header li {
      display: inline-block;
  }
- header a {
+ header nav {
+    text-transform: uppercase;     
+ }
+ header nav a {
     border: 1px solid transparent ;     
+    color: #e0ffff;
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
@@ -101,6 +116,35 @@ a {
      background: #fbb548;
      color: #0e5686;
  }
+ header .title {
+     float: left;
+     font-size: 24px;
+     text-transform: none;
+     width: 85px;
+     padding: 10px 0;
+ }
+ header h1 a {
+    color: #FFF;
+ }
+ header h1 a:hover {
+     border: 1px solid transparent;
+     color: #e0ffff;
+ }
+ #logo {
+     float: left;
+     height: 80px;
+     padding: 10px 20px;
+ }
+
+ /*********************************************
+ * Home
+ *********************************************/
+.panel {
+     background-size: cover;   
+     border-bottom: 15px solid #fbb548;
+     height: 600px;
+     text-align: center;       
+}
  
  /*********************************************
  * Home
@@ -109,10 +153,6 @@ a {
  .panel-intro {
      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
                 url('../img/writing.jpg') 50% 40%;
-     background-size: cover;
-     border-bottom: 15px solid #fbb548;
-     height: 600px;
-     text-align: center;     
  }
  .panel-text {
      color: #FFF;
@@ -123,7 +163,7 @@ a {
  .panel-text h2 {
     color: #FBB548;
     display: inline-block;
-    font: normal 128px 'Gotham', Helvetica, Arial, sans-serif;
+    font: normal 140px 'Gotham Condensed', Helvetica, Arial, sans-serif;
     padding: 0 15px;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     letter-spacing: -0.05em;
@@ -174,22 +214,19 @@ a {
  }
 
  .upcoming-event{
-     margin: 20px;
      display: block;
      float: left;
-     width: 200px;
+     margin: 0 20px 0 0;
+     padding: 0 20px 0 0;
+     width: 300px;
      border-right: 1px solid #000;
-     font: normal 14px Arial, sans-serif;
  }
- .upcoming-event h3{
+ .upcoming-event h2{
      font: bold 30px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
      text-align: center;
      text-transform: uppercase;
  }
- .upcoming-event p{
-     line-height: 20px;
-     
- }
+ 
  .upcoming-event a{
      line-height: 20px;
      color: #4FCAE3;
@@ -204,12 +241,6 @@ a {
      max-width:600px;
      margin: 20px;
      display: inline;
-     font: normal 14px Arial, sans-serif;
- }
- .main-feat h2{
-      font: bold small-caps 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
-      text-align: center;
-      margin: 0 0 15px;
  }
 /*********************************************
  * Home
@@ -219,7 +250,6 @@ a {
      background: #025682;
      border-top: 10px solid #fbb548;
      padding: 40px 0;
-     /* temp */ margin-top: 500px;
  }
  footer label, footer p {
      font: normal 13px 'Droid Sans', Helvetica, Arial, sans-serif;
@@ -283,6 +313,36 @@ a {
 }
 .wrap3:last-child {
     padding: 0;
+}
+
+ /*********************************************
+ * About
+ *********************************************/
+ 
+ .about-intro {
+     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
+                url('../img/typing.jpg') 50% 40%;
+ }
+.about {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about h2{
+    font: bold small-caps 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
+      text-align: left;
+      margin: 100px 0 15px;
+}
+.about p{
+    line-height: 1.5em;
+    text-align:justify;
+    
+    font-family: Arial, sans-serif;
+}
+.about img{
+    max-height: 250px;
+    margin: 5px 10px;
 }
 
  /**
