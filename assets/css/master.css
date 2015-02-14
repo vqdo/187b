@@ -53,25 +53,39 @@ table {
 body {
     min-height: 1000px;
 }
-body, p {
-    font: normal 14px Helvetica, Arial, sans-serif;
+body, p, a {
+    font: normal 14px 'Droid Sans', Helvetica, Arial, sans-serif;
     line-height: 1.5;
 }
 .container {
     margin: auto;
     width: 1024px;
 }
+.half {
+    width: 492px;
+    padding: 0 20px 0 0;
+}
+.half:last-child {
+    padding: 0 0 0 20px;
+}
 h3 {
     color: #0e5686;
-    font: normal 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
+    font: normal 64px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
     text-align: center;
-    margin: 0 0 15px;
+    margin: 0 0 30px;
+}
+h4 {
+    font: 100 48px 'Gotham Condensed', Helvetica, Arial, sans-serif;
 }
 a {
+    color: #0e5686;
     text-decoration: none;
 }
 #content {
     min-height: 500px;
+}
+#content .view > .container {
+    padding: 40px 0;
 }
 
 /*********************************************
@@ -79,9 +93,9 @@ a {
  *********************************************/
  
  header {
-     padding: 10px 0;
+    padding: 10px 0;
     position: absolute;
-     width: 100%;
+    width: 100%;
     z-index: 5;
  }
  header h1, header a {
@@ -137,7 +151,7 @@ a {
  }
 
  /*********************************************
- * Home
+ * Pages
  *********************************************/
 .panel {
      background-size: cover;   
@@ -152,7 +166,7 @@ a {
  
  .panel-intro {
      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
-                url('../img/writing.jpg') 50% 40%;
+                url('../img/writing.jpg') 50% 40% #0e5686;
  }
  .panel-text {
      color: #FFF;
@@ -165,15 +179,13 @@ a {
     display: inline-block;
     font: normal 140px 'Gotham Condensed', Helvetica, Arial, sans-serif;
     padding: 0 15px;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
     letter-spacing: -0.05em;
  }
 
  .panel-text p {
-    /*background: rgba(34, 175, 241, 0.5); */
-
     padding: 10px;
-    font: normal 20px 'Gotham', Helvetica, Arial, sans-serif;
+    font: normal 20px 'Droid Sans', Helvetica, Arial, sans-serif;
     letter-spacing: 1px;
     line-height: 1.5;
  }
@@ -215,9 +227,10 @@ a {
 
  .upcoming-event{
      display: block;
+     height: 100%;
      float: left;
      margin: 0 20px 0 0;
-     padding: 0 20px 0 0;
+     padding: 0 20px 0 15px;
      width: 300px;
      border-right: 1px solid #000;
  }
@@ -226,24 +239,68 @@ a {
      text-align: center;
      text-transform: uppercase;
  }
- 
- .upcoming-event a{
-     line-height: 20px;
-     color: #4FCAE3;
-     text-decoration: none;
+ .upcoming-event h4{
+     color: #025682;
+     font: normal 32px 'Gotham Condensed','Droid Sans', Arial, sans-serif;   
  }
- .upcoming-event a:hover{
-     color: #7ED4E6;
-     text-decoration: none;
+ .rsvp{
+    background: #025682;
+    display: inline-block;
+    padding: 5px 15px;
+    font: normal 18px 'Droid Sans', Arial, sans-serif;
+    color: #fff;
+ }
+ .rsvp:hover {
+    background: #fbb548;
+ }
+ .single-event {
+     margin: 20px 0;
+     padding: 0 15px;
+ }
+ .single-event:nth-child(even){
+     border-left: 20px solid #fbb548;
+ }
+ .single-event:nth-child(odd){
+     border-left: 20px solid #025682;
+ }
+ .single-event .location{
+     
+ }
+ .single-event .time {
+     
+ }
+ .single-event .description {
+     
  }
  
  .main-feat{
-     max-width:600px;
-     margin: 20px;
-     display: inline;
+     width:600px;
+     margin: 0 20px;
  }
+ .main-feat-img {
+    max-width: 100%;    
+ }
+ 
 /*********************************************
- * Home
+ * Conference
+ *********************************************/
+ .panel-conference {
+     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('../img/moat.jpg') 50% 28% #0e5686;
+  } 
+ #keynotes h4 {
+     padding: 10px 0;
+ }
+ #keynotes .role {
+     color: #333;
+     display: block;
+     font: normal 24px 'Gotham Condensed', Helvetica, Arial, sans-serif;
+ }
+ #keynotes p {
+     padding: 10px 0;
+ }
+ 
+/*********************************************
+ * Footer
  *********************************************/
  
  footer {
@@ -295,6 +352,12 @@ a {
  footer textarea {
      height: 130px;
  }
+ .form-message {
+     border: 1px solid #FFF;
+     color: #FFF;
+     padding: 10px;
+     margin: 20px 0;
+ }
  
  /** Map **/
  
@@ -321,7 +384,7 @@ a {
  
  .about-intro {
      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
-                url('../img/typing.jpg') 50% 40%;
+                url('../img/typing.jpg') 50% 40% #0e5686;
  }
 .about {
     max-width: 800px;
@@ -334,15 +397,13 @@ a {
       text-align: left;
       margin: 100px 0 15px;
 }
-.about p{
-    line-height: 1.5em;
-    text-align:justify;
-    
-    font-family: Arial, sans-serif;
-}
+
 .about img{
-    max-height: 250px;
-    margin: 5px 10px;
+    display: block;
+    max-width: 575px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
 }
 
  /**

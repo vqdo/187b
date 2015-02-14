@@ -7,9 +7,6 @@
 		<meta name="description" content="The Undergraduate Investment Society at UCSD"> 
 		<base href="/app/">
 
-		<!-- LOAD FIRST -->
-		<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
-
 		<!-- ANGULARJS -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>	
@@ -30,6 +27,7 @@
 		<script src="app.js"></script>
 		
 		<!-- EXTERNAL -->
+		<script src="https://apis.google.com/js/client.js?onload=onGapiLoad"></script>		
 		<script src="https://maps.googleapis.com/maps/api/js"></script>
 		
 
@@ -46,7 +44,7 @@
 				</h1>
 				<nav>
 					<ul>
-						<li>
+						<li ngClass="{active: isActive('home')}">
 							<a href="#/home">Home</a>
 						</li>
 						<li>
@@ -72,13 +70,22 @@
 			<div ng-view class="view">
 				
 			</div>
+
+		    <div id="conference-form" class="container" ng-show="location.path() === '/conference'">
+
+		        <script type="text/javascript" src="https://formscentral.acrobat.com/Clients/Current/FormsCentral/htmlClient/scripts/adobe.form.embed.min.js"></script>
+		        <script type="text/javascript">;ADOBEFORMS.EmbedForm({formId:"lBQF0Bu5MOR3GEYXx30ZtQ"});</script>
+		    </div>			
 			
 		</div>
+		
 		<footer class="cf" ng-controller="FooterCtrl">
 			<div class="container cf">
 				<div class="fl">
 					<h1>Drop a Message</h1>
 					<p>Questions or comments? Fill out this form and we'll get back to you as soon as we can!</p>
+					
+					<span class="form-message" ng-show="formSubmitted">Your message has been sent!</span>
 					<form name="contact">
 					<div class="wrap3 fl">
 						<div class="field">

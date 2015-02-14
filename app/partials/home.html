@@ -13,27 +13,32 @@
 </div>
 <div class="container cf">
     <!-- Upcoming events bar on the left -->
-    <div class="upcoming-event">
+    <div class="upcoming-event fl">
         <h3>Upcoming Events</h3>
         <div ng-controller="EventsCtrl">
-            <div ng-repeat="event in events">
+            <div ng-repeat="event in events" class="single-event">
                  <!-- Use this area to style each event 
                       Avoid the <br> tag if possible, use css instead -->
-                
-                 <h4>{{event.summary}}</h4> <br>
-                 Date: {{event.start.dateTime}} <br>
-                 Location: {{event.location}} <br>
-                 Description: {{event.description}} <br>
                  
-                 <a href="#/calendar">View Calender &raquo;</a><br><br>
+                     <h4>{{event.summary}}</h4> <br>
+                     
+                     <span class="location">{{event.location}}</span> <br>
+                     <span class="time">{{event.time}}</span> <br>
+                     
+                     <span class="description">{{event.description}}</span>
+
+                     <a href="#/calendar">View Calender &raquo;</a><br><br>
+                     <a ng-show="event.fb" class="rsvp" href="{{event.fb}}">RSVP</a>
+                 
              </div>
              
         </div>
       
     </div>
     <!-- Main feature (conference) -->
-    <div class="main-feat">
+    <div class="main-feat fr">
         <h3>Financial Horizons Conference</h3>
+        <img class="main-feat-img" src="/assets/img/registration.jpg" alt="Conference registration">        
         <p>this is were stuff would go if I had stuff, but I don't 
         have stuff yet. so deal with it. I'm kinda hungry. I should
         have uses an lorem ipsum generator. Oh well, too much effort.</p>

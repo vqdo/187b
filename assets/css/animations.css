@@ -6,18 +6,26 @@
 	width: 150px;
 	opacity: 1;
 }
+.ng-hide {
+  opacity: 0;
+}
+.ng-show {
+  opacity: 1;
+}
 .detail-icon.ng-hide-remove, .detail-icon.ng-hide-add,
-.panel-text.ng-hide-remove, .panel-text.ng-hide-add {
+.panel-text.ng-hide-remove, .panel-text.ng-hide-add,
+.form-message.ng-hide-remove, .form-message.ng-hide-add {
   /* this is required as of 1.3x to properly
      apply all styling in a show/hide animation */
   transition: 0.5s linear all;
 }
 .detail-icon.ng-hide-add.ng-hide-add-active, .detail-icon.ng-hide-remove.ng-hide-remove-active,
-.panel-text.ng-hide-add.ng-hide-add-active, .panel-text.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition:0.5s linear all;
-  -moz-transition:0.5s linear all;
-  -o-transition:0.5s linear all;
-  transition:0.5s linear all;
+.panel-text.ng-hide-add.ng-hide-add-active, .panel-text.ng-hide-remove.ng-hide-remove-active,
+.form-message.ng-hide-add.ng-hide-add-active, .form-message.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition:1s linear all;
+  -moz-transition:1s linear all;
+  -o-transition:1s linear all;
+  transition:1s linear all;
 }
 .detail-icon.ng-hide {
 	display: inline-block !important;
@@ -70,12 +78,19 @@ header.fixed .title {
   the leave event is triggered for the element
   that has the .repeated-item class
 */
-.view.ng-enter {
-  -webkit-animation:1.5s fadeIn;
-  -moz-animation:1.5s fadeIn;
-  -o-animation:1.5s fadeIn;
-  animation:1.5s fadeIn;
-}
+/*.view.ng-enter {*/
+/*  -webkit-animation:1s fadeIn;*/
+/*  -moz-animation:1s fadeIn;*/
+/*  -o-animation:1s fadeIn;*/
+/*  animation:1s fadeIn;*/
+/*}*/
+/*.view.ng-leave {*/
+/*  -webkit-animation:1s fadeOut;*/
+/*  -moz-animation:1s fadeOut;*/
+/*  -o-animation:1s fadeOut;*/
+/*  animation:1s fadeOut;*/
+/*}*/
+
 
 @keyframes fadeIn {
   from { opacity:0; }
@@ -100,3 +115,27 @@ header.fixed .title {
   from { opacity:0; }
   to { opacity:1; }
 }
+
+/****************
+ * FADE OUT 
+ ****************/
+ 
+@keyframes fadeOut {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-webkit-keyframes fadeOut {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-moz-keyframes fadeOut {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-o-keyframes fadeOut {
+  from { opacity:1; }
+  to { opacity:0; }
+} 
