@@ -52,6 +52,7 @@ table {
  *********************************************/
 body {
     min-height: 1000px;
+    overflow-x: hidden;
 }
 body, p, a {
     font: normal 14px 'Droid Sans', Helvetica, Arial, sans-serif;
@@ -225,6 +226,20 @@ a:focus {
      background: #025682;
      color: #FFF;
  }
+.title-with-image {
+    margin: 20px 0;
+}
+.title-with-image img {
+    height: 80px;
+    width: 80px;
+    float: left;
+}
+.title-with-image h3 {
+    line-height: 80px;
+    float: left;
+    padding: 0 20px;
+    margin: 0;
+}
  
  /*********************************************
  * Home
@@ -241,13 +256,15 @@ a:focus {
  }
  .detail-icon {
     display: inline-block;
-    width: 250px;
-    margin: 0 40px;
+    width: 300px;
+    margin: 0 20px;
     text-align: center;
  }
 .detail-icon img {
     max-height: 100%;
     display: block;
+    width: 150px;
+    height: 150px;
     opacity: 0.8;
     margin: auto;
     padding: 20px 0;
@@ -258,10 +275,10 @@ a:focus {
     text-transform: uppercase;
 }
 .detail-icon p {
-    color: #666;
-    font: normal 13px 'Droid Sans', 'Helvetica', Arial, sans-serif;
+    color: #000;
+    font: 100 24px 'Gotham Condensed', 'Droid Sans', 'Helvetica', Arial, sans-serif;
     letter-spacing: 1px;
-    
+    text-transform: uppercase;
 }
  .upcoming-event{
      display: block;
@@ -473,13 +490,15 @@ a:focus {
 /*      margin: 100px 0 15px;*/
 /*}*/
 
-.about img{
+.photo-large {
+    border: 1px solid #0e5686;
     display: block;
+    padding: 10px;
     margin: 40px 0;
     width: 100%;
 }
 .about p {
-    line-height: 1.5;
+    line-height: 2;
     font-size: 18px;
     padding: 10px 0;
 }

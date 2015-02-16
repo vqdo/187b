@@ -66,29 +66,29 @@ uisServices.service('Util', function() {
  * Loads and performs async setup for access to Google Calendar
  * Returns a promise 
  */
-.factory('GAuth', ['$rootScope', '$q', '$window', 
+.service('GAuth', ['$rootScope', '$q', '$window', 
     function($rootScope, $q, $window) {
-        var deferred = $q.defer();
+        var self = this;
+        this.deferred = $q.defer();
         
-        var loadClient = function() {
-            if(!$rootScope.gapi) {
-                gapi.client.setApiKey('AIzaSyAYd_kJIzfJbPkoNdH_fgFDVog1B35cMQ0');
-                $rootScope.gapi = gapi.client.load('calendar', 'v3');
-            }
-            
-            $rootScope.gapi.then(function() {
+        
+        this.loadClient = function() {
+            gapi.client.setApiKey('AIzaSyAYd_kJIzfJbPkoNdH_fgFDVog1B35cMQ0');
+            gapi.client.load('calendar', 'v3').then(function() {
                 console.log("Resolving!!");
-                deferred.resolve();
+                self.deferred.resolve();
+                $rootScope.$apply();
+            }, function() {
+                console.error("Could not resolve the client.");
             });
         }
         
         // If everything is ready, resolve now.
         if(gapi.client) {
-            loadClient();
+            this.loadClient();
         }
         
-        deferred.promise.onGapiLoad = loadClient;
-        return deferred.promise;
+        this.then = this.deferred.promise.then;
         
     }]
 )

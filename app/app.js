@@ -51,8 +51,7 @@ window.onGapiLoad = function() {
   console.log("Client loaded.");
   var injector = angular.injector(['uisServices']);
   var service = injector.get('GAuth');
-  console.log(service.onGapiLoad);
-  service.onGapiLoad();
+  service.loadClient();
 }
 
 
