@@ -1,37 +1,24 @@
 /*********************************************
  * Animations
  *********************************************/
-.detail-icon {
-	height: 150px;
-	width: 150px;
-	opacity: 1;
-}
 .ng-hide {
   opacity: 0;
 }
 .ng-show {
   opacity: 1;
 }
-.detail-icon.ng-hide-remove, .detail-icon.ng-hide-add,
 .panel-text.ng-hide-remove, .panel-text.ng-hide-add,
 .form-message.ng-hide-remove, .form-message.ng-hide-add {
   /* this is required as of 1.3x to properly
      apply all styling in a show/hide animation */
   transition: 0.5s linear all;
 }
-.detail-icon.ng-hide-add.ng-hide-add-active, .detail-icon.ng-hide-remove.ng-hide-remove-active,
 .panel-text.ng-hide-add.ng-hide-add-active, .panel-text.ng-hide-remove.ng-hide-remove-active,
 .form-message.ng-hide-add.ng-hide-add-active, .form-message.ng-hide-remove.ng-hide-remove-active {
   -webkit-transition:1s linear all;
   -moz-transition:1s linear all;
   -o-transition:1s linear all;
   transition:1s linear all;
-}
-.detail-icon.ng-hide {
-	display: inline-block !important;
-	height: 0;
-	width: 150px;
-	opacity: 0;	
 }
 .panel-text {
   -webkit-animation:1.5s fadeIn;
@@ -56,7 +43,7 @@ header.fixed {
 /*******
  * Fast transition
  */
-header.fixed,  .learn-more {
+header.fixed,  .panel-button {
   -webkit-transition:0.3s linear all;
   -moz-transition:0.3s linear all;
   -o-transition:0.3s linear all;

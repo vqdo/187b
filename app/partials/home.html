@@ -7,8 +7,13 @@
     </div>
 </div>
 <div class="detail-panel">
-	<div class="detail-container">
-		<div class="detail-icon" ng-repeat="icon in icons" ng-show="displayIcons" uis-show-on-scroll></div>			
+	<div class="container cf">
+		<div class="detail-icon fl" ng-repeat="icon in icons">
+		    <!-- icon -->
+		    <img src="{{icon.img}}" alt="{{icon.title}}">
+		    <strong>{{icon.title}}</strong>
+		    <p>{{icon.description}}</p>
+		</div>			
 	</div>
 </div>
 <div class="container cf">
@@ -20,11 +25,11 @@
                  <!-- Use this area to style each event 
                       Avoid the <br> tag if possible, use css instead -->
                  
-                     <h4>{{event.summary}}</h4> <br>
+                     <h4>{{event.summary}}</h4>
+                    <span class="time">{{event.time}}</span><br>              
+                    <span class="location">{{event.location}}</span><br>                    
                     <span class="description">{{event.description}}</span>
-                     
-                     <span class="location">{{event.location}}</span> <br>
-                     <span class="time">{{event.time}}</span> <br>
+                    
                     
 
                      <!--<a href="#/calendar">View Calender &raquo;</a><br><br>-->

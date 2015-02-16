@@ -112,9 +112,21 @@ uisControllers.controller('HomePageCtrl', ['$scope',
     $scope.targetDelta = 0.4; // minOpacity + targetDelta = max opacity
 
     $scope.icons = [
-      {},
-      {},
-      {}
+      {
+        title: 'Build',
+        description: '...your foundation from financial literacy to career empowerment',
+        img: '../assets/img/career.png'
+      },
+      {
+        title: 'Network',
+        description: '...with aspiring peers and veteran alumni',
+        img: '../assets/img/career.png'
+      },
+      {
+        title: 'Transform',
+        description: '...UCSD into a target school one internship at a time',
+        img: '../assets/img/career.png'
+      }
     ]
 
     $scope.displayIcons = false;

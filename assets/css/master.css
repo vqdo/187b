@@ -68,6 +68,17 @@ body, p, a {
 .half:last-child {
     padding: 0 0 0 20px;
 }
+.third {
+    width: 320px;
+    padding: 0 20px 0 0;
+}
+.third2 {
+    width: 640px;
+    padding: 0 20px;
+}
+.third:last-child {
+    padding: 0;
+}
 h3 {
     color: #0e5686;
     font: normal 64px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
@@ -80,6 +91,9 @@ h4 {
 a {
     color: #0e5686;
     text-decoration: none;
+}
+a:focus {
+    outline: 0;
 }
 #content {
     min-height: 500px;
@@ -111,24 +125,32 @@ a {
     padding: 0 10px;
  }
  header li {
+    border: 1px solid transparent ;       
      display: inline-block;
+     padding: 0 15px;
  }
  header nav {
     text-transform: uppercase;     
  }
  header nav a {
-    border: 1px solid transparent ;     
     color: #e0ffff;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 5px;
     text-decoration: none;
  }
- header a:hover {
+ header nav .active a {
+     border-bottom: 5px solid #fbb548;
+ }
+ header nav li:hover {
      border: 1px solid #fbb548 ;
  }
- header.fixed a:hover {
+ header.fixed li:hover {
      background: #fbb548;
      color: #0e5686;
+ }
+ header li.active:hover {
+     background: transparent;
+     border: 1px solid transparent;
  }
  header .title {
      float: left;
@@ -159,16 +181,7 @@ a {
      height: 600px;
      text-align: center;       
 }
- 
- /*********************************************
- * Home
- *********************************************/
- 
- .panel-intro {
-     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
-                url('../img/writing.jpg') 50% 40% #0e5686;
- }
- .panel-text {
+.panel-text {
      color: #FFF;
      display: inline-block;
      padding-top: 100px;
@@ -193,8 +206,12 @@ a {
     color: #EEE;
     font-weight: bold;
  }
- .panel-intro .learn-more {
-     /*background: #22aee1;*/
+ .panel-button.in-body {
+     background: #fbb548;
+     margin: auto;
+ }
+ .panel-button {
+     background: rgba(0, 0, 0, 0.2);
      border: 1px solid #FFF;
      color: #FFF;
      display: inline-block;
@@ -204,41 +221,60 @@ a {
      letter-spacing: 1px;
      text-transform: uppercase;
  }
- .panel-intro .learn-more:hover {
-     background: #FBB548;
-     color: #333;
+ .panel-button:hover, .panel-button.in-body:hover {
+     background: #025682;
+     color: #FFF;
+ }
+ 
+ /*********************************************
+ * Home
+ *********************************************/
+ 
+ .panel-intro {
+     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
+                url('../img/writing.jpg') 50% 40% #0e5686;
  }
 
  .detail-panel {
-    min-height: 150px;
- }
- .detail-container {
-    width: 700px;
-    margin: auto;
+     border-bottom: 15px solid #FBB548;
+     padding: 40px 0 60px 0;
  }
  .detail-icon {
-    background: #CCC;
     display: inline-block;
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    margin: 40px;
+    width: 250px;
+    margin: 0 40px;
+    text-align: center;
  }
-
+.detail-icon img {
+    max-height: 100%;
+    display: block;
+    opacity: 0.8;
+    margin: auto;
+    padding: 20px 0;
+}
+.detail-icon strong {
+    color: #FBB548;
+    font: normal 48px 'Gotham Condensed', 'Droid Sans', 'Helvetica', 'Arial', sans-serif;
+    text-transform: uppercase;
+}
+.detail-icon p {
+    color: #666;
+    font: normal 13px 'Droid Sans', 'Helvetica', Arial, sans-serif;
+    letter-spacing: 1px;
+    
+}
  .upcoming-event{
      display: block;
      height: 100%;
      float: left;
-     margin: 0 20px 0 0;
      padding: 0 20px 0 15px;
-     width: 300px;
-     border-right: 1px solid #000;
+     width: 320px;
  }
- .upcoming-event h2{
-     font: bold 30px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
-     text-align: center;
-     text-transform: uppercase;
- }
+.upcoming-event h3 {
+    font: 100 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
  .upcoming-event h4{
      color: #025682;
      font: normal 32px 'Gotham Condensed','Droid Sans', Arial, sans-serif;   
@@ -263,19 +299,22 @@ a {
  .single-event:nth-child(odd){
      border-left: 20px solid #025682;
  }
- .single-event .location{
-     
+.single-event .location {
+    color: #444;
+    font: bold 12px 'Droid Sans', Arial, sans-serif;
  }
- .single-event .time {
-     
- }
+.single-event .time {
+    color: #025682;
+    font: 100 24px 'Gotham Condensed', 'Droid Sans', Arial, sans-serif;
+}
  .single-event .description {
-     
+     font-size: 13px;
  }
  
  .main-feat{
-     width:600px;
-     margin: 0 20px;
+     border-left: 1px solid #333;     
+     width:620px;
+     padding: 0 0 0 40px;
  }
  .main-feat-img {
     max-width: 100%;    
@@ -287,17 +326,50 @@ a {
  .panel-conference {
      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('../img/moat.jpg') 50% 28% #0e5686;
   } 
- #keynotes h4 {
+ #keynotes {
+     border-bottom: 10px solid  #fbb548;     
+ }
+ .conference-panel {
+     border-bottom: 1px solid #CCC;
+     padding: 40px 0 60px 0;
+ }
+ .conference-panel h4 {
      padding: 10px 0;
  }
- #keynotes .role {
+ .conference-panel .role {
      color: #333;
      display: block;
      font: normal 24px 'Gotham Condensed', Helvetica, Arial, sans-serif;
  }
- #keynotes p {
+ .conference-panel p {
      padding: 10px 0;
  }
+ .conference-panel strong {
+     font-weight: bold;
+     color: #025682;
+     display: inline-block;
+     width: 100px;
+     text-align: right;
+     padding: 0 20px 0 0;
+ }
+.conference-block {
+     background: #FFD8A0;
+     height: 230px;
+     width: 460px;
+     padding: 15px;
+     margin: 0 15px 30px 0;
+}
+.conference-block h4 {
+    color: #025682;     
+}
+.conference-block .time {
+     font: normal 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
+     padding: 0 20px 0 0;
+}
+.conference-block strong {
+    text-align: left;
+    width: auto;
+}
  
 /*********************************************
  * Footer
@@ -306,7 +378,9 @@ a {
  footer {
      background: #025682;
      border-top: 10px solid #fbb548;
+     display: inline-block;
      padding: 40px 0;
+     width: 100%;
  }
  footer label, footer p {
      font: normal 13px 'Droid Sans', Helvetica, Arial, sans-serif;
@@ -355,6 +429,7 @@ a {
  .form-message {
      border: 1px solid #FFF;
      color: #FFF;
+     display: block;
      padding: 10px;
      margin: 20px 0;
  }
@@ -392,18 +467,21 @@ a {
     margin-right: auto;
 }
 
-.about h2{
-    font: bold small-caps 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
-      text-align: left;
-      margin: 100px 0 15px;
-}
+/*.about h2{*/
+/*    font: bold small-caps 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;*/
+/*      text-align: left;*/
+/*      margin: 100px 0 15px;*/
+/*}*/
 
 .about img{
     display: block;
-    max-width: 575px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
+    margin: 40px 0;
+    width: 100%;
+}
+.about p {
+    line-height: 1.5;
+    font-size: 18px;
+    padding: 10px 0;
 }
 
  /**
@@ -438,4 +516,14 @@ a {
 }
 .fr {
     float: right;
+}
+.pad-top {
+    padding-top: 20px;
+}
+.pad-bot {
+    padding-bottom: 20px;
+}
+.center {
+    margin: auto;
+    text-align: center;
 }
