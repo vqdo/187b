@@ -6,7 +6,6 @@ var uis = angular.module('uis', [
   'ngRoute',
 
   'uisControllers',
-  // 'uisFilters',
   'uisServices',
   'uisAnimations'
 ])
@@ -48,33 +47,15 @@ uis.config(['$routeProvider', '$locationProvider',
       $locationProvider.html5Mode(true);      
   }]);
   
-uis.directive('script', function() {
-  return {
-    restrict: 'E',
-    scope: false,
-    link: function(scope, elem, attr)
-    {
-      if (attr.type==='text/javascript-lazy')
-      {
-        console.log("Lazy loading");
-        var s = document.createElement("script");
-        s.type = "text/javascript";
-        var src = elem.attr('src');
-        if(src!==undefined)
-        {
-          s.src = src;
-        }
-        else
-        {
-          var code = elem.text();
-          s.text = code;
-        }
-        document.head.appendChild(s);
-        elem.remove();
-      }
-    }
-  };
-});
+window.onGapiLoad = function() {
+  console.log("Client loaded.");
+  var injector = angular.injector(['uisServices']);
+  var service = injector.get('GAuth');
+  console.log(service.onGapiLoad);
+  service.onGapiLoad();
+}
+
+
 
 // FB Graph Access
 // var ns_uis = (function() {

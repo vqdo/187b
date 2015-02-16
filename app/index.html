@@ -44,23 +44,23 @@
 				</h1>
 				<nav>
 					<ul>
-						<li ngClass="{active: isActive('home')}">
+						<li ng-class="isActive('/')">
 							<a href="#/home">Home</a>
 						</li>
-						<li>
+						<li ng-class="isActive('/about')">
 							<a href="#/about">About</a>
 						</li>		
-						<li>
+						<li ng-class="isActive('/recruiting')">
 							<a href="#/recruiting">Recruiting</a>
 						</li>								
-						<li>
+						<li ng-class="isActive('/conference')">
 							<a href="#/conference">Conference</a>
 						</li>	
 						<li>
 							<a href="#/calendar">Calendar</a>
 						</li>
 						<li>
-							<a href="#/contact">Contact</a>
+							<a ng-click="gotoContact()">Contact</a>
 						</li>						
 					</ul>
 				</nav>
@@ -70,18 +70,12 @@
 			<div ng-view class="view">
 				
 			</div>
-
-		    <div id="conference-form" class="container" ng-show="location.path() === '/conference'">
-
-		        <script type="text/javascript" src="https://formscentral.acrobat.com/Clients/Current/FormsCentral/htmlClient/scripts/adobe.form.embed.min.js"></script>
-		        <script type="text/javascript">;ADOBEFORMS.EmbedForm({formId:"lBQF0Bu5MOR3GEYXx30ZtQ"});</script>
-		    </div>			
 			
 		</div>
 		
 		<footer class="cf" ng-controller="FooterCtrl">
 			<div class="container cf">
-				<div class="fl">
+				<div class="fl" id="contact-form">
 					<h1>Drop a Message</h1>
 					<p>Questions or comments? Fill out this form and we'll get back to you as soon as we can!</p>
 					

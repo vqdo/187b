@@ -7,40 +7,38 @@ var uisServices = angular.module('uisServices', ['ngResource']);
 /**
  * Simple utility methods
  */
-uisServices.factory('Util', function() {
-    return {
-        parseURLs: function(s) {
-            if(s) {
-    
-                s = s.match(new RegExp(
-                  "(^|[ \t\r\n])((ftp|http|https|gopher|mailto|news|nntp|telnet|wais|file|prospero|aim|webcal):(([A-Za-z0-9$_.+!*(),;/?:@&~=-])|%[A-Fa-f0-9]{2}){2,}(#([a-zA-Z0-9][a-zA-Z0-9$_.+!*(),;/?:@&~=%-]*))?([A-Za-z0-9$_+!*();/?:~-]))"
-                 ,"g"
-                ));
-                
-            }
+uisServices.service('Util', function() {
+    this.parseURLs = function(s) {
+        if(s) {
 
-            return s || [];
-        },
-        truncate: function(s, max) {
-            if(s && s.length > max - 3) {
-                s = s.substr(0, max) + '...';
-            }
-            return s;
-        },
-        parseMonth: function(month) {
-            var months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-            return months[month];
-        },
-        parseTime: function(d) {
-            var hr = d.getHours();
-            var min = d.getMinutes();
-            if (min < 10) {
-                min = "0" + min;
-            }
-            var ampm = hr < 12 ? "am" : "pm";      
+            s = s.match(new RegExp(
+              "(^|[ \t\r\n])((ftp|http|https|gopher|mailto|news|nntp|telnet|wais|file|prospero|aim|webcal):(([A-Za-z0-9$_.+!*(),;/?:@&~=-])|%[A-Fa-f0-9]{2}){2,}(#([a-zA-Z0-9][a-zA-Z0-9$_.+!*(),;/?:@&~=%-]*))?([A-Za-z0-9$_+!*();/?:~-]))"
+             ,"g"
+            ));
             
-            return (hr % 12) + ':' + min + ' ' + ampm;
         }
+
+        return s || [];
+    };
+    this.truncate = function(s, max) {
+        if(s && s.length > max - 3) {
+            s = s.substr(0, max) + '...';
+        }
+        return s;
+    };
+    this.parseMonth = function(month) {
+        var months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        return months[month];
+    };
+    this.parseTime = function(d) {
+        var hr = d.getHours();
+        var min = d.getMinutes();
+        if (min < 10) {
+            min = "0" + min;
+        }
+        var ampm = hr < 12 ? "am" : "pm";      
+        
+        return (hr % 12) + ':' + min + ' ' + ampm;
     }
 })
 /****
@@ -70,32 +68,28 @@ uisServices.factory('Util', function() {
  */
 .factory('GAuth', ['$rootScope', '$q', '$window', 
     function($rootScope, $q, $window) {
-        console.log($rootScope);
-        
         var deferred = $q.defer();
         
         var loadClient = function() {
             if(!$rootScope.gapi) {
                 gapi.client.setApiKey('AIzaSyAYd_kJIzfJbPkoNdH_fgFDVog1B35cMQ0');
-                return gapi.client.load('calendar', 'v3');
+                $rootScope.gapi = gapi.client.load('calendar', 'v3');
             }
             
-            return $rootScope.gapi;
-        }
-        
-        $window.onGapiLoad = function() {
-            console.log("gCallback");
-            loadClient().then(function() {
-               deferred.resolve(); 
+            $rootScope.gapi.then(function() {
+                console.log("Resolving!!");
+                deferred.resolve();
             });
         }
         
         // If everything is ready, resolve now.
         if(gapi.client) {
-            $window.onGapiLoad();
+            loadClient();
         }
         
+        deferred.promise.onGapiLoad = loadClient;
         return deferred.promise;
+        
     }]
 )
 .factory('Cache', ['$cacheFactory', function($cacheFactory) {
@@ -125,7 +119,6 @@ uisServices.factory('Util', function() {
                } 
             }, this);
             
-            console.log(link);
             return {fbLink: link, description: description};
         }
         
@@ -141,10 +134,11 @@ uisServices.factory('Util', function() {
                 console.log("Cache found");
                 return callback(cachedEvents);
             }            
-            console.log("Retrieving events.");
-            
+
+            console.log("Waiting for Gapi...");
             // Retrieve events from Google Calendar
             GAuth.then(function() {
+                console.log("Retrieving events.");
                 var request = gapi.client.calendar.events.list({
                     calendarId: calendarId
                 });
@@ -161,8 +155,6 @@ uisServices.factory('Util', function() {
                         if(items.fbLink != null) {
                             result.fb = items.fbLink;
                         } 
-                        console.log(event.start.dateTime);
-                        console.log(Date.parse(event.start.dateTime));
                         result.summary = Util.truncate(event.summary, TITLE_CHAR_LIMIT);
                         result.time = parseDatetime(event.start.dateTime);
                         result.location = event.location;

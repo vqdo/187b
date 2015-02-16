@@ -9,13 +9,20 @@ var uisControllers = angular.module('uisControllers', []);
  * Nav Controller
  ***********************************************************/
 
-uisControllers.controller('NavCtrl', ['$scope', 
-  function($scope, Nav) {
+uisControllers.controller('NavCtrl', ['$scope', '$location', '$anchorScroll',
+  function($scope, $location, $anchorScroll) {
     $scope.fixedClassName = 'fixed';
     
     $scope.isActive = function (viewLocation) { 
-        return viewLocation === location.pathname;
+      //console.log(viewLocation + ' + ' + $location.path());
+      return ($location.path() == viewLocation) ? 'active' : '';
     };    
+    
+    $scope.gotoContact = function () {
+      console.log("Goto contact");
+      $location.hash('contact-form');
+      $anchorScroll();
+    }
     
   }]).directive("locknav", function ($window) {
       return function(scope, element, attrs) { 
@@ -164,10 +171,9 @@ uisControllers.controller('CalendarPageCtrl', ['$scope',
   }]);
 
 
-uisControllers.controller('ConferencePageCtrl', ['$scope', 
-  function($scope, ConferencePage) {
-    $scope.isConference = true;
-      console.log(location);
+uisControllers.controller('ConferencePageCtrl', ['$scope', '$rootScope', 
+  function($scope, $rootScope, ConferencePage) {
+    
   }]);
   
 uisControllers.controller('AboutPageCtrl', ['$scope', 

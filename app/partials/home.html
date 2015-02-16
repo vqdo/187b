@@ -3,7 +3,7 @@
         <h2>Our Mission</h2>
         <p>We equip students and members of the San Diego community with the <strong>financial</strong> and <strong>investment</strong> knowledge required to create successful future <strong>leaders of the business world</strong>.  </p>
         
-        <a class="learn-more" href="#/about">Learn More</a>
+        <a class="panel-button" href="#/about">Learn More</a>
     </div>
 </div>
 <div class="detail-panel">
@@ -21,13 +21,13 @@
                       Avoid the <br> tag if possible, use css instead -->
                  
                      <h4>{{event.summary}}</h4> <br>
+                    <span class="description">{{event.description}}</span>
                      
                      <span class="location">{{event.location}}</span> <br>
                      <span class="time">{{event.time}}</span> <br>
-                     
-                     <span class="description">{{event.description}}</span>
+                    
 
-                     <a href="#/calendar">View Calender &raquo;</a><br><br>
+                     <!--<a href="#/calendar">View Calender &raquo;</a><br><br>-->
                      <a ng-show="event.fb" class="rsvp" href="{{event.fb}}">RSVP</a>
                  
              </div>
