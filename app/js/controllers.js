@@ -51,6 +51,8 @@ uisControllers.controller('EventsCtrl', ['$scope', 'Events',
     Events(function(data) {
       $scope.events = data;
       //console.log(data);
+    }, function(err) {
+      console.error(err);
     });
   
 }]);
@@ -66,19 +68,32 @@ uisControllers.controller('FooterCtrl', ['$scope', 'Contact', function($scope, C
   * Collect form information and mail to UIS 
   */
   $scope.send = function(info) {
+    
+    // Bad or rejected form submissions
+    var onError =  function(err) {
+      console.error("Error occurred submitting contact form: " + err);
+      
+      $scope.formError = true;
+      
+      setTimeout(function() {
+        $scope.formError = false;
+      }, 3000);        
+    }
+    
     if(!info.$invalid) {
       Contact(info, function(data) {
         console.log($scope.formSubmitted);
         $scope.formSubmitted = true;
-        console.log("Form success");
         
         setTimeout(function() {
           $scope.formSubmitted = false;
         }, 1000);
-      }, function(err) {
-        console.error("Error occurred submitting contact form: " + err);
-      });
+      }, onError);
+      
+    } else {
+      onError("Bad format.");
     }
+    
   }
 }])
 .directive('googleMap', function() {
@@ -119,7 +134,7 @@ uisControllers.controller('HomePageCtrl', ['$scope',
       },
       {
         title: 'Network',
-        description: 'with aspiring peers and veteran alumni',
+        description: 'with aspiring peers & veteran alumni',
         img: '../assets/img/icon_network.png'
       },
       {
@@ -170,11 +185,6 @@ uisControllers.controller('HomePageCtrl', ['$scope',
 uisControllers.controller('RecruitingPageCtrl', ['$scope', 
   function($scope, RecruitingPage) {
     
-  }]);
-
-uisControllers.controller('ContactPageCtrl', ['$scope', 
-  function($scope, ContactPage) {
-
   }]);
 
 uisControllers.controller('CalendarPageCtrl', ['$scope', 

@@ -36,10 +36,10 @@ uis.config(['$routeProvider', '$locationProvider',
         templateUrl: 'partials/recruiting.html',
         controller: 'RecruitingPageCtrl'
       }).
-      when('/contact', {
-        templateUrl: 'partials/contact.html',
-        controller: 'ContactPageCtrl'
-      }).
+      // when('/footer', {
+      //   templateUrl: 'partials/footer.html',
+      //   controller: 'FooterCtrl'
+      // }).
       otherwise({
         redirectTo: '/'
       });
@@ -51,7 +51,7 @@ window.onGapiLoad = function() {
   console.log("Client loaded.");
   var injector = angular.injector(['uisServices']);
   var service = injector.get('GAuth');
-  service.loadClient();
+  //service.loadClient();
 }
 
 

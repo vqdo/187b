@@ -1,0 +1,33 @@
+<header ng-controller="NavCtrl" locknav>
+			<div class="cf">
+				
+				<h1>
+					<a href="#/home">
+						<img id="logo" src="/assets/img/logo.png" alt="Undergraduate Investment Society">
+						<span class="title">Undergraduate Investment Society</span>
+					</a>
+				</h1>
+				<nav>
+					<ul>
+						<li ng-class="isActive('/')">
+							<a href="#/home">Home</a>
+						</li>
+						<li ng-class="isActive('/about')">
+							<a href="#/about">About</a>
+						</li>		
+						<li ng-class="isActive('/recruiting')">
+							<a href="#/recruiting">Recruiting</a>
+						</li>								
+						<li ng-class="isActive('/conference')">
+							<a href="#/conference">Conference</a>
+						</li>	
+						<li>
+							<a href="#/calendar">Calendar</a>
+						</li>
+						<li>
+							<a ng-click="gotoContact()">Contact</a>
+						</li>						
+					</ul>
+				</nav>
+			</div>
+		</header>

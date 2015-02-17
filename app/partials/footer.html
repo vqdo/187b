@@ -1,0 +1,56 @@
+	<footer class="cf" ng-controller="FooterCtrl">
+			<div class="container cf">
+				<div class="fl" id="contact-form">
+					<h1>Drop a Message</h1>
+					<p>Questions or comments? Fill out this form and we'll get back to you as soon as we can! <br>Or, email us at <b>uis.ucsd@gmail.com</b></p>
+					
+					<span class="form-message" ng-show="formSubmitted">Your message has been sent!</span>
+					<span class="form-message" ng-show="formError">Sorry, your message didn't go through! Try sending your message to <a href="mailto:uisucsd@gmail.com">uis.ucsd@gmail.com</a></span>
+					<form name="contact">
+					<div class="wrap3 fl">
+						<div class="field">
+							<label for="contact-name">Name</label>
+							<input required name="contact-name" type="text" placeholder="Tell us who you are!" ng-model="contact.name"></input>
+						</div>
+						
+						<div class="field">
+							<label for="contact-email">Email</label>
+							<input required name="contact-email" type="email" placeholder="yourname@mail.com" ng-model="contact.email"></input>
+						</div>
+					</div>
+					<div class="wrap3 fl">
+						
+						<div class="field message-field">
+							<label for="contact-message">Message</label>
+							<textarea name="contact-message" required ng-model="contact.message" placeholder="Hi, I just wanted to say..."></textarea>
+						</div>
+						<input type="submit" value="Submit" ng-click="send(contact)"></input>
+					</div>
+					</form>
+				</div>
+				<div class="wrap3 fr">
+					<h1>Contact Us</h1>
+					    <p>We're based out of UCSD! Come visit us at: </p>
+					    
+					    <address>
+    					UC San Diego<br>
+                        9500 Gilman Dr., La Jolla, CA 92093<br>
+                        </address>
+
+
+					<div id="gmap" google-map>
+						
+					</div>
+				</div>
+			</div>
+			<div class="extras">
+			    <div class="container cf">
+			    <span class="fl">
+                    Copyright &copy; 2014 Undergraduate Investment Society
+                    <br>Website by <a href="http://victoriado.com">Victoria Do</a>, <a href="http://tanyazdesigns.com/">Tanya Zhang</a> &amp; Nancy Acosta
+                </span>
+                 
+                <a href="https://www.facebook.com/groups/338823926171260/"><img class="fr" src="../assets/img/icon_fb.png"></a>
+                </div>
+			</div>			
+		</footer>

@@ -33,83 +33,15 @@
 
 	</head>
 	<body>
-		<header ng-controller="NavCtrl" locknav>
-			<div class="cf">
-				
-				<h1>
-					<a href="#/home">
-						<img id="logo" src="/assets/img/logo.png" alt="Undergraduate Investment Society">
-						<span class="title">Undergraduate Investment Society</span>
-					</a>
-				</h1>
-				<nav>
-					<ul>
-						<li ng-class="isActive('/')">
-							<a href="#/home">Home</a>
-						</li>
-						<li ng-class="isActive('/about')">
-							<a href="#/about">About</a>
-						</li>		
-						<li ng-class="isActive('/recruiting')">
-							<a href="#/recruiting">Recruiting</a>
-						</li>								
-						<li ng-class="isActive('/conference')">
-							<a href="#/conference">Conference</a>
-						</li>	
-						<li>
-							<a href="#/calendar">Calendar</a>
-						</li>
-						<li>
-							<a ng-click="gotoContact()">Contact</a>
-						</li>						
-					</ul>
-				</nav>
-			</div>
-		</header>
+		<ng-include src="'./partials/header.html'"></ng-include>
 		<div id="content">
-			<div ng-view class="view">
+			<div ng-view class="view" autoscroll="true">
 				
 			</div>
 			
 		</div>
 		
-		<footer class="cf" ng-controller="FooterCtrl">
-			<div class="container cf">
-				<div class="fl" id="contact-form">
-					<h1>Drop a Message</h1>
-					<p>Questions or comments? Fill out this form and we'll get back to you as soon as we can!</p>
-					
-					<span class="form-message" ng-show="formSubmitted">Your message has been sent!</span>
-					<form name="contact">
-					<div class="wrap3 fl">
-						<div class="field">
-							<label for="contact-name">Name</label>
-							<input required name="contact-name" type="text" placeholder="Tell us who you are!" ng-model="contact.name"></input>
-						</div>
-						
-						<div class="field">
-							<label for="contact-email">Email</label>
-							<input required name="contact-email" type="email" placeholder="yourname@mail.com" ng-model="contact.email"></input>
-						</div>
-					</div>
-					<div class="wrap3 fl">
-						
-						<div class="field message-field">
-							<label for="contact-message">Message</label>
-							<textarea name="contact-message" required ng-model="contact.message" placeholder="Hi, I just wanted to say..."></textarea>
-						</div>
-						<input type="submit" value="Submit" ng-click="send(contact)"></input>
-					</div>
-					</form>
-				</div>
-				<div class="wrap3 fr">
-					<h1>Contact Us</h1>
-					<p>Blah blah blah address here</p>
-					<div id="gmap" google-map>
-						
-					</div>
-				</div>
-			</div>
-		</footer>
+		<ng-include src="'./partials/footer.html'"></ng-include>
+	
 	</body>
 </html>

@@ -84,8 +84,18 @@ uisServices.service('Util', function() {
         }
         
         // If everything is ready, resolve now.
-        if(gapi.client) {
-            this.loadClient();
+        /*if(gapi.client) {
+            //this.loadClient();
+        } else*/ 
+        
+        if(!this.timer) {
+            this.timer = setInterval(function() {
+                console.log("Tick.");
+                if(gapi.client) {
+                    self.loadClient();
+                    clearInterval(self.timer);
+                }
+            });
         }
         
         this.then = this.deferred.promise.then;
@@ -103,7 +113,7 @@ uisServices.service('Util', function() {
 .factory('Events', ['GAuth', 'Util', 'Cache',
     function(GAuth, Util, Cache) {
         var TITLE_CHAR_LIMIT = 42;
-        var DESC_CHAR_LIMIT = 100;
+        var DESC_CHAR_LIMIT = 140;
         
         var calendarId = 'jipbmf9i7ilsinkbiurhd911ag@group.calendar.google.com';
         //var calendarId = /* TEST CALENDAR */ '54e4jggu1ahlbjkfm3etmdfk8g@group.calendar.google.com';
@@ -140,7 +150,10 @@ uisServices.service('Util', function() {
             GAuth.then(function() {
                 console.log("Retrieving events.");
                 var request = gapi.client.calendar.events.list({
-                    calendarId: calendarId
+                    calendarId: calendarId,
+                    maxResults: 5,
+                    orderBy: 'startTime',
+                    singleEvents: true
                 });
                 
                 request.then(function(data) {
