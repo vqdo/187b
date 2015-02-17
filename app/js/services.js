@@ -83,19 +83,16 @@ uisServices.service('Util', function() {
             });
         }
         
-        // If everything is ready, resolve now.
-        /*if(gapi.client) {
-            //this.loadClient();
-        } else*/ 
-        
+        // I just can't get the GApi callback to resolve the promise
+        // so, this is an alternative solution
         if(!this.timer) {
             this.timer = setInterval(function() {
                 console.log("Tick.");
                 if(gapi.client) {
-                    self.loadClient();
+                    self.loadClient.apply(self);
                     clearInterval(self.timer);
                 }
-            });
+            }, 1000);
         }
         
         this.then = this.deferred.promise.then;
