@@ -130,17 +130,17 @@ uisControllers.controller('HomePageCtrl', ['$scope',
       {
         title: 'Build',
         description: 'your foundation from financial literacy to career empowerment',
-        img: '../assets/img/icon_build.png'
+        img: 'assets/img/icon_build.png'
       },
       {
         title: 'Network',
         description: 'with aspiring peers & veteran alumni',
-        img: '../assets/img/icon_network.png'
+        img: 'assets/img/icon_network.png'
       },
       {
         title: 'Transform',
         description: 'UCSD into a target school one internship at a time',
-        img: '../assets/img/icon_transform.png'
+        img: 'assets/img/icon_transform.png'
       }
     ]
 
