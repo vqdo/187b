@@ -134,6 +134,7 @@ a:focus {
     border: 1px solid transparent ;       
      display: inline-block;
      padding: 0 15px;
+    margin-top: 5px;     
  }
  header nav {
     text-transform: uppercase;     
@@ -201,6 +202,13 @@ a:focus {
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
     letter-spacing: -0.05em;
  }
+ .panel-text h3 {
+    color: #FFF;
+    display: inline-block;
+    font: bold 20px 'Droid Sans', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+ } 
 
  .panel-text p {
     padding: 10px;
@@ -251,8 +259,11 @@ a:focus {
  *********************************************/
  
  .panel-intro {
-     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
-                url('../img/writing.jpg') 50% 40% #0e5686;
+     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0 ,0, 0.3)),
+                url('../img/uis_sitting2.jpg') 0% 28% #0e5686;
+ }
+ .panel-intro .panel-text {
+     padding-top: 150px;
  }
 
  .detail-panel {
@@ -365,6 +376,7 @@ a:focus {
      font: normal 24px 'Gotham Condensed', Helvetica, Arial, sans-serif;
  }
  .conference-panel p {
+     font-size: 14px;
      padding: 10px 0;
  }
  .conference-panel strong {
@@ -377,7 +389,7 @@ a:focus {
  }
 .conference-block {
      background: #FFD8A0;
-     height: 230px;
+     height: 250px;
      width: 460px;
      padding: 15px;
      margin: 0 15px 30px 0;
