@@ -261,7 +261,7 @@ a:focus {
  
  .panel-intro {
      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0 ,0, 0.3)),
-                url('../img/uis_sitting2.jpg') 0% 28% #0e5686;
+                url('../img/writing.jpg') 50% 50% #0e5686;
  }
  .panel-intro .panel-text {
      padding-top: 150px;
