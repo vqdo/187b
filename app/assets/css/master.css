@@ -364,7 +364,7 @@ a:focus {
  .panel-conference {
      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('../img/moat.jpg') 50% 28% #0e5686;
   } 
- #keynotes {
+ #workshop {
      border-bottom: 10px solid  #fbb548;     
  }
  .conference-panel {
