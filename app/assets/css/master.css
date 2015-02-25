@@ -59,6 +59,7 @@ body, p, a {
     line-height: 1.5;
 }
 p {
+    color: #555;
     font-size: 16px;
     padding: 10px 0;
     line-height: 2;
@@ -189,11 +190,13 @@ a:focus {
      text-align: center;       
 }
 .panel-text {
-     color: #FFF;
      display: inline-block;
      padding-top: 100px;
      width: 740px;
  }
+.panel-text, .panel-text p {
+    color: #FFF;
+}
  .panel-text h2 {
     color: #FBB548;
     display: inline-block;
@@ -269,7 +272,7 @@ a:focus {
 
  .detail-panel {
      border-bottom: 15px solid #FBB548;
-     padding: 40px 0 60px 0;
+     padding: 20px 0 60px 0;
  }
  .detail-icon {
     display: inline-block;
@@ -347,7 +350,7 @@ a:focus {
  }
  
  .main-feat{
-     border-left: 1px solid #333;     
+     border-left: 3px solid #EEE;     
      width:620px;
      padding: 0 0 0 40px;
  }
