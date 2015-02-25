@@ -371,6 +371,10 @@ a:focus {
      border-bottom: 1px solid #CCC;
      padding: 40px 0 60px 0;
  }
+ .conference-panel strong {
+     color: #025682;
+ }
+
  .conference-panel h4 {
      padding: 10px 0;
  }
@@ -379,13 +383,16 @@ a:focus {
      display: block;
      font: normal 24px 'Gotham Condensed', Helvetica, Arial, sans-serif;
  }
+#keynotes .time {
+     color: #CCC;
+     font-size: 0.8em;
+ }
  .conference-panel p {
      font-size: 14px;
      padding: 10px 0;
  }
- .conference-panel strong {
+ .conference-panel .third strong {
      font-weight: bold;
-     color: #025682;
      display: inline-block;
      width: 100px;
      text-align: right;
