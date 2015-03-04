@@ -63,6 +63,18 @@ p {
     padding: 10px 0;
     line-height: 2;
 }
+blockquote {
+    color: #0e5686;
+    font: normal 64px "Gotham Condensed", Arial, sans-serif;
+    text-align: center;
+}
+.byline {
+    color: #CCC;
+    display: block;
+    font: 300 32px "Gotham Condensed", Arial, sans-serif;
+    text-align: right;
+    text-transform: uppercase;
+}
 .container {
     margin: auto;
     width: 1024px;
@@ -94,12 +106,22 @@ h3 {
 h4 {
     font: 100 48px 'Gotham Condensed', Helvetica, Arial, sans-serif;
 }
+
+h5 {
+    font: 100 30px 'Gotham Condensed', Helvetica, Arial, sans-serif;
+}
 a {
     color: #0e5686;
     text-decoration: none;
 }
 a:focus {
     outline: 0;
+}
+.divider {
+    background: #CCC;
+    height: 1px;
+    margin: 60px 0;
+    width: 100%;
 }
 #content {
     min-height: 500px;
@@ -260,8 +282,8 @@ a:focus {
  *********************************************/
  
  .panel-intro {
-     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0 ,0, 0.3)),
-                url('../img/uis_sitting2.jpg') 0% 28% #0e5686;
+     background: linear-gradient(rgba(9, 63, 88, 0.5), rgba(16, 113, 157, 0.4)),
+                url('../img/uis_bg.jpg') 70% 60% #0e5686;
  }
  .panel-intro .panel-text {
      padding-top: 150px;
@@ -354,12 +376,53 @@ a:focus {
  .main-feat-img {
     max-width: 100%;    
  }
+ /*********************************************
+ * Executive Team
+ *********************************************/
+ 
+ .panel-executive {
+     background: linear-gradient(rgba(9, 63, 88, 0.5), rgba(16, 113, 157, 0.4)),
+                url('../img/uis_execboard.jpg') 50% 40% #0e5686;
+    background-size: contain;
+ }
+ .executive-panel h3 {
+     padding: 40px 0;
+ }
+ .executive-member {
+     text-align:center;
+     padding: 0 0 40px 0;
+ }
+ .executive-member h2 {
+     padding: 20px 0 0 0;
+ }
+
+.exec-photo {
+    overflow: hidden;    
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    margin: auto;
+}
+.exec-photo img {
+    width: 200px;
+}
+ .executive-member h2 {
+    color: #025682;
+    font: bold 25px 'Droid Sans', Arial, sans-serif;
+}
+  .executive-member p {
+    color: #025682;
+    font: 100 20px 'Gotham Condensed','Droid Sans', Arial, sans-serif;
+ 
+  }
+
  
 /*********************************************
  * Conference
  *********************************************/
  .panel-conference {
-     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('../img/moat.jpg') 50% 28% #0e5686;
+     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../img/uis_conference.jpg') 50% 0% #0e5686;
+
   } 
  #keynotes {
      border-bottom: 10px solid  #fbb548;     
@@ -368,19 +431,20 @@ a:focus {
      border-bottom: 1px solid #CCC;
      padding: 40px 0 60px 0;
  }
- .conference-panel h4 {
-     padding: 10px 0;
+
+ .membership h4, .conference-panel h4 {
+     padding: 20px 0;
  }
- .conference-panel .role {
+ .membership .role, .conference-panel .role {
      color: #333;
      display: block;
      font: normal 24px 'Gotham Condensed', Helvetica, Arial, sans-serif;
  }
- .conference-panel p {
+ .membership p,.conference-panel p {
      font-size: 14px;
      padding: 10px 0;
  }
- .conference-panel strong {
+ .membership strong, .conference-panel strong {
      font-weight: bold;
      color: #025682;
      display: inline-block;
@@ -514,10 +578,10 @@ footer .extras a {
  
  .about-intro {
      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
-                url('../img/typing.jpg') 50% 40% #0e5686;
+                url('../img/uis_stockgroup.jpg') 50% 40% #0e5686;
+    background-size: contain;
  }
 .about {
-    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -535,6 +599,7 @@ footer .extras a {
     margin: 40px 0;
     width: 100%;
 }
+
 
  /**
  * For modern browsers

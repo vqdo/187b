@@ -36,6 +36,10 @@ uis.config(['$routeProvider', '$locationProvider',
         templateUrl: 'partials/recruiting.html',
         controller: 'RecruitingPageCtrl'
       }).
+      when('/executive', {
+        templateUrl: 'partials/executive.html',
+        controller: 'ExecutivePageCtrl'
+      }).      
       // when('/footer', {
       //   templateUrl: 'partials/footer.html',
       //   controller: 'FooterCtrl'
