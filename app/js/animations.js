@@ -1,4 +1,4 @@
-var uisAnimations = angular.module('uisAnimations', ['ngAnimate']);
+var uisAnimations = angular.module('uisAnimations', []);
 
 // phonecatAnimations.animation('.phone', function() {
 

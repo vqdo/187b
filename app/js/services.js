@@ -113,7 +113,13 @@ uisServices.service('Util', function() {
         var DESC_CHAR_LIMIT = 140;
         
         var calendarId = 'jipbmf9i7ilsinkbiurhd911ag@group.calendar.google.com';
-        //var calendarId = /* TEST CALENDAR */ '54e4jggu1ahlbjkfm3etmdfk8g@group.calendar.google.com';
+       //var calendarId = /* TEST CALENDAR */ '54e4jggu1ahlbjkfm3etmdfk8g@group.calendar.google.com';
+        
+        // Date settings
+        var offset = 2;        
+        var now = new Date();
+        var timeRange = new Date();
+        timeRange.setMonth(timeRange.getMonth() - offset);
         
         var parseFBLink = function(description) {
             
@@ -148,14 +154,17 @@ uisServices.service('Util', function() {
                 console.log("Retrieving events.");
                 var request = gapi.client.calendar.events.list({
                     calendarId: calendarId,
-                    maxResults: 5,
+                    maxResults: 6,
                     orderBy: 'startTime',
-                    singleEvents: true
+                    singleEvents: true,
+                    start: timeRange.toISOString(),
                 });
                 
                 request.then(function(data) {
                     //console.log("Calendar callback: " + data.result.items);
-                    var events = [];
+                    var events = {};
+                    events.upcoming = [];
+                    events.past = [];
                     
                     angular.forEach(data.result.items, function(event, i) {
 
@@ -170,8 +179,11 @@ uisServices.service('Util', function() {
                         result.location = event.location;
                         result.description = Util.truncate(items.description, DESC_CHAR_LIMIT);      
                                          
-                        events.push(result);
-                        //console.log(result);
+                        if(new Date(event.start.dateTime) > now) {
+                            events.upcoming.push(result);
+                        } else {
+                            events.past.unshift(result);
+                        }
                         
                     });
                     

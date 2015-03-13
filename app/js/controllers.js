@@ -46,13 +46,24 @@ uisControllers.controller('NavCtrl', ['$scope', '$location', '$anchorScroll',
 
 uisControllers.controller('EventsCtrl', ['$scope', 'Events',
   function($scope, Events) {
-    $scope.events = [];
+    $scope.done   = false;
+    $scope.error  = false;
+    
+    $scope.upcoming = [];
+    $scope.past     = [];
+    
     console.log("About to call events");
     Events(function(data) {
-      $scope.events = data;
-      //console.log(data);
+      console.log(data);
+      $scope.upcoming = data.upcoming;
+      $scope.past = data.past;
+      $scope.done = true;
+      $scope.$apply();
+      console.log("Done!");      
     }, function(err) {
       console.error(err);
+      $scope.error = true;
+      $scope.done = true;
     });
   
 }]);
@@ -126,8 +137,11 @@ uisControllers.controller('HomePageCtrl', ['$scope',
     $scope.minOpacity = 0.3;
     $scope.targetDelta = 0.4; // minOpacity + targetDelta = max opacity
 
-    $scope.icons = [
-      {
+    $scope.icons = []
+
+    $scope.displayIcons = false;
+    
+      $scope.icons = [{
         title: 'Build',
         description: 'your foundation from financial literacy to career empowerment',
         img: 'assets/img/icon_build.png'
@@ -141,10 +155,7 @@ uisControllers.controller('HomePageCtrl', ['$scope',
         title: 'Transform',
         description: 'UCSD into a target school one internship at a time',
         img: 'assets/img/icon_transform.png'
-      }
-    ]
-
-    $scope.displayIcons = false;
+      }];
 
   }])
   .directive('uisShowOnScroll', function($window, $timeout) {
@@ -189,13 +200,38 @@ uisControllers.controller('RecruitingPageCtrl', ['$scope',
 
 uisControllers.controller('CalendarPageCtrl', ['$scope', 
   function($scope, CalendarPage) {
-
+    $scope.eventSources = [{
+      googleCalendarId: 'jipbmf9i7ilsinkbiurhd911ag@group.calendar.google.com',
+      googleCalendarApiKey: 'AIzaSyAYd_kJIzfJbPkoNdH_fgFDVog1B35cMQ0'
+    }];
+    $scope.uiConfig = {
+      calendar:{
+        height: 450,
+        editable: false,
+        header:{
+          left: 'month basicWeek basicDay agendaWeek agendaDay',
+          center: 'title',
+          right: 'today prev,next'
+        },
+        dayClick: $scope.alertEventOnClick,
+        eventDrop: $scope.alertOnDrop,
+        eventResize: $scope.alertOnResize,
+      
+        googleCalendarApiKey: 'AIzaSyAYd_kJIzfJbPkoNdH_fgFDVog1B35cMQ0',
+        eventSources: {
+            googleCalendarId: 'jipbmf9i7ilsinkbiurhd911ag@group.calendar.google.com'
+        }
+      }
+    }
+      
   }]);
 
 
 uisControllers.controller('ConferencePageCtrl', ['$scope', '$rootScope', 
   function($scope, $rootScope, ConferencePage) {
-    
+    $scope.eventSource = {
+            url: "http://www.google.com/calendar/feeds/jipbmf9i7ilsinkbiurhd911ag@group.calendar.google.com/public/basic",
+    };
   }]);
   
 uisControllers.controller('AboutPageCtrl', ['$scope', 
@@ -203,7 +239,82 @@ uisControllers.controller('AboutPageCtrl', ['$scope',
 
   }]);
 uisControllers.controller('ExecutivePageCtrl', ['$scope', 
-function($scope) {
-
-}]);
+function($scope, ExecutivePage) {
+  $scope.overlayClass = 'photo-overlay';
   
+  $scope.defaultPhoto = 'assets/img/exec_default.jpg';
+  $scope.members = [
+    {
+      name: 'Samuel Hong',
+      role: 'President',
+      photo: 'assets/img/exec_samuelhong.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=132928891'
+    },
+    {
+      name: 'Michelle Sou',
+      role: 'Senior Vice President',
+      photo: 'assets/img/exec_michellesou.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=278037322'
+    },
+    {
+      name: 'Jiayi Zeng',
+      role: 'VP Internal',
+      photo: 'assets/img/exec_jiayizeng.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=296094020'
+    },
+    {
+      name: 'Mohammed Alyasini',
+      role: 'Co-VP Research and Education',
+      photo: 'assets/img/exec_mohammed.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=278037322'
+    },
+    {
+      name: 'Giovanni Ugut',
+      role: 'Co-VP Research and Education',
+      photo: 'assets/img/exec_giovanni.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=296094020'
+    },
+    {
+      name: 'Jason Masong',
+      role: 'Co-VP External - Sponsors',
+      photo: 'assets/img/exec_jasonmasong.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=296094020'
+    },
+    {
+      name: 'Jocelyn Ueng',
+      role: 'Co-VP External - Speakers',
+      photo: 'assets/img/exec_jocelyn.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=296094020'
+    },
+    {
+      name: 'Dominick Suvonnasupa',
+      role: 'Director of Campus Relations',
+      photo: 'assets/img/exec_dom.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=296094020'
+    },
+    {
+      name: 'Dorothy Chow',
+      role: 'Director of Marketing',
+      photo: $scope.defaultPhoto,
+      url: 'https://www.linkedin.com/profile/view?id=296094020'
+    },
+    {
+      name: 'Jeffrey Shu',
+      role: 'Director of Human Resource and Technology',
+      photo: 'assets/img/exec_jeffreyshu.jpg',
+      url: 'https://www.linkedin.com/profile/view?id=296094020'
+    },
+    {
+      name: 'Roohani Arora',
+      role: 'Director of Finance',
+      photo:  $scope.defaultPhoto,
+      url: 'https://www.linkedin.com/profile/view?id=296094020'
+    },
+  ]
+  
+  $scope.hover = function(item) {
+    console.log(item);
+    item.show = !item.show;
+  }
+  
+}]);

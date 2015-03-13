@@ -4,10 +4,13 @@
 
 var uis = angular.module('uis', [
   'ngRoute',
-
+  'ui.calendar',
   'uisControllers',
   'uisServices',
-  'uisAnimations'
+  'uisAnimations',
+  'uisDirectives',
+  'ngAnimate',
+  'ngFx',  
 ])
 .run(function($rootScope, $location) {
     $rootScope.location = $location;

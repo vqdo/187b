@@ -282,7 +282,7 @@ a:focus {
  *********************************************/
  
  .panel-intro {
-     background: linear-gradient(rgba(9, 63, 88, 0.5), rgba(16, 113, 157, 0.4)),
+     background: linear-gradient(rgba(9, 63, 88, 0.7), rgba(16, 113, 157, 0.6)),
                 url('../img/uis_bg.jpg') 70% 60% #0e5686;
  }
  .panel-intro .panel-text {
@@ -327,6 +327,11 @@ a:focus {
      padding: 0 20px 0 15px;
      width: 320px;
  }
+ .upcoming-event .notice {
+     padding: 0 0 40px 0;
+     display: block;
+     text-align: center;
+ }
 .upcoming-event h3 {
     font: 100 48px 'Gotham Condensed', 'Droid Sans', Helvetica, Arial, sans-serif;
     text-align: center;
@@ -339,12 +344,17 @@ a:focus {
  .rsvp{
     background: #025682;
     display: inline-block;
-    padding: 5px 15px;
+    padding: 5px 15px 5px 0;
     font: normal 18px 'Droid Sans', Arial, sans-serif;
     color: #fff;
  }
  .rsvp:hover {
     background: #fbb548;
+ }
+ .rsvp img {
+     width: 15px;
+     float : left;
+     padding: 3px 8px 0 8px;
  }
  .single-event {
      margin: 20px 0;
@@ -365,9 +375,10 @@ a:focus {
     font: 100 24px 'Gotham Condensed', 'Droid Sans', Arial, sans-serif;
 }
  .single-event .description {
+     display: block;
      font-size: 13px;
+     padding: 10px 0;
  }
- 
  .main-feat{
      border-left: 1px solid #333;     
      width:620px;
@@ -376,14 +387,20 @@ a:focus {
  .main-feat-img {
     max-width: 100%;    
  }
+ .spinner {
+     display: block;
+     margin: auto;
+     padding: 20px 0 40px 0;
+ }
  /*********************************************
  * Executive Team
  *********************************************/
  
  .panel-executive {
      background: linear-gradient(rgba(9, 63, 88, 0.5), rgba(16, 113, 157, 0.4)),
-                url('../img/uis_execboard.jpg') 50% 40% #0e5686;
-    background-size: contain;
+                url('../img/uis_execboard_resize.jpg') 50% 40% #0e5686;
+
+
  }
  .executive-panel h3 {
      padding: 40px 0;
@@ -395,15 +412,21 @@ a:focus {
  .executive-member h2 {
      padding: 20px 0 0 0;
  }
+ .executive-member a {
+     position: relative;
+     display: inline-block;
+ }
 
 .exec-photo {
+    position: relative;
     overflow: hidden;    
     width: 200px;
     height: 200px;
     border-radius: 200px;
     margin: auto;
+    text-align: center;
 }
-.exec-photo img {
+.exec-photo .mugshot {
     width: 200px;
 }
  .executive-member h2 {
@@ -415,13 +438,50 @@ a:focus {
     font: 100 20px 'Gotham Condensed','Droid Sans', Arial, sans-serif;
  
   }
-
+.photo-overlay {
+    width: 100%;
+    height: 100%;
+    background: #025682;
+    position: absolute;
+    border-radius: 100;
+    opacity: 0.7;
+}
+.overlay-caption {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+.overlay-caption span {
+    color: #FFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 200px;
+}
+.overlay-caption span strong {
+    color: #fbb548;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.icon-linkedin {
+    opacity: 0.5;
+    position: absolute;
+        right: 0;
+        bottom: 0;
+    width: 24px;
+    height: 24px;
+    z-index: 10;
+}
+.icon-linkedin.hover {
+    opacity: 1;
+}
  
 /*********************************************
  * Conference
  *********************************************/
  .panel-conference {
-     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../img/uis_conference.jpg') 50% 0% #0e5686;
+     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../img/uis_conference_resize.jpg') 50% 0% #0e5686;
 
   } 
  #keynotes {
@@ -573,13 +633,41 @@ footer .extras a {
 }
 
  /*********************************************
+ * Calendar
+ *********************************************/
+ 
+ .panel-calendar {
+     background: linear-gradient(rgba(9, 63, 88, 0.5), rgba(16, 113, 157, 0.4)),
+                url('../img/uis_calendar.jpg') 70% 60% #0e5686;
+ }
+  /*********************************************
+ * Recruiting
+ *********************************************/
+ 
+ .panel-recruiting {
+     background: linear-gradient(rgba(9, 63, 88, 0.5), rgba(16, 113, 157, 0.4)),
+                url('../img/uis_membership.jpg') 70% 60% #0e5686;
+ }
+ #gallery{
+     height: 100px;
+     
+ }
+ .dark{
+     background-color: #000;
+     border-radius: 10px;
+     padding: 2px;
+ }
+ .gallery-arrow-left{
+     background: url('../img/arrow-left.png');
+ }
+ 
+  /*********************************************
  * About
  *********************************************/
  
  .about-intro {
-     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3)),
-                url('../img/uis_stockgroup.jpg') 50% 40% #0e5686;
-    background-size: contain;
+     background: linear-gradient(rgba(9, 63, 88, 0.5), rgba(16, 113, 157, 0.4)),
+                url('../img/uis_stockgroup_resize.jpg') 50% 40% #0e5686;
  }
 .about {
     margin-left: auto;

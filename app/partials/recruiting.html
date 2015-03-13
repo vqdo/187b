@@ -1,4 +1,17 @@
-<div class="panel panel-intro" uis-opacity>
+<script>
+    $(document).ready(function() {
+            var p = $("#gallery").portfolio({
+                height: '100px'
+            });
+            p.init();
+            
+            var gallery = $('#gallery');
+                
+    });
+</script>
+
+
+<div class="panel panel-recruiting" uis-opacity>
     <div class="panel-text">
         <h2>Recruiting</h2>
         <p>UIS has made a definitive, positive impact on the careers of our members. Just listen to what they have to say!</p>
@@ -11,9 +24,9 @@
             <h3>Success Stories</h3>
             <div class="success-story third fl">
                 <div class="exec-photo">
-                    <img src="assets/img/exec_mohammed.jpg">
+                    <img class="mugshot" src="assets/img/exec_mohammed.jpg">
                 </div>                
-                <h4>
+                <h4 class="center">
                     <span class="name">Nabil Hamade</span>
                     <span class="role">RA Capital Advisors</span>
                 </h4>
@@ -21,9 +34,9 @@
             </div>
             <div class="success-story third fl">
                 <div class="exec-photo">
-                    <img src="assets/img/exec_michellesou.jpg">
+                    <img class="mugshot" src="assets/img/exec_michellesou.jpg">
                 </div>        
-                <h4>
+                <h4 class="center">
                     <span class="name">Janis Ho</span>
                     <span class="role">JP Morgan</span>
                 </h4>                
@@ -31,9 +44,9 @@
             </div>
             <div class="success-story third fl">
                 <div class="exec-photo">
-                    <img src="assets/img/exec_jiayizeng.jpg">
+                    <img class="mugshot" src="assets/img/exec_jeffreyshu.jpg">
                 </div>                
-                <h4>
+                <h4 class="center">
                     <span class="name">Jeffrey Shu</span>
                     <span class="role">Barclays</span>
                 </h4>                
@@ -45,7 +58,28 @@
             
             <div class="divider"></div>
             
+            <h3>Our Sponsors</h3>
+            <div id="gallery">
+                <img data-src="assets/img/logo/ucsd.gif" />
+                <img data-src="assets/img/logo/alumni.png" />
+                <img data-src="assets/img/logo/cfa_society.jpg" />
+                <img data-src="assets/img/logo/chase-logo.png" />
+                <img data-src="assets/img/logo/ebb_logo.png" />
+                <img data-src="assets/img/logo/illumination.png" />
+                <img data-src="assets/img/logo/peets.png" />
+                <img class="dark" data-src="assets/img/logo/rady-logo.png" />
+                <img data-src="assets/img/logo/ralphs.png" />
+                <img data-src="assets/img/logo/kaplan.gif" />
+                <img data-src="assets/img/logo/starbucks.png" />
+                <img data-src="assets/img/logo/trader_joes.png" />
+                <img data-src="assets/img/logo/wells_fargo.jpeg" />
+                <img data-src="assets/img/logo/whole_foods.jpg" />
+            </div>
+            
+            <div class="divider"></div>
+            
             <h3>Our Members</h3>
+            <div class="cf">
             <div class="half fl">
                 <h5>External Committee Members:</h5>
                 <p>
@@ -84,8 +118,9 @@
                 Brian Dzou
                 </p>
             </div>
+            </div>
             
-            <h3>How to Apply</h3>
+            <h3 style="padding-top: 40px">How to Apply</h3>
             <p>UIS recruits new officers in Fall and Spring Quarters each year. Please join our first GBMs in those quarters to find out more about UIS and details of the recruiting process. A copy of your updated resume, cover letter as well as your latest transcript are required to submit the application. Shortlisted candidates will be invited to interview after we carefully review each application. You do NOT have to have previous experience in Finance to get into UIS. However, be sure to read our website and talk to as many UIS members as possible to find out more about us before going into the interview. 
             </p>
     

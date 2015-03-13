@@ -19,24 +19,33 @@
 <div class="container cf">
     <!-- Upcoming events bar on the left -->
     <div class="upcoming-event fl">
-        <h3>Upcoming Events</h3>
         <div ng-controller="EventsCtrl">
-            <div ng-repeat="event in events" class="single-event">
-                 <!-- Use this area to style each event 
-                      Avoid the <br> tag if possible, use css instead -->
+            <h3  uis-animate-on-scroll>Upcoming Events</h3>
+            <span class="notice" ng-show="done && !upcoming.length">There are no upcoming events right now. :(</span>
+            <img class="spinner" ng-show="!done" src="assets/img/spinner.gif">
+            <div ng-show="inView" ng-repeat="event in upcoming" class="fx-zoom-left fx-speed-1600 single-event">
                  
-                     <h4>{{event.summary}}</h4>
+                    <h4>{{event.summary}}</h4>
+                    <span class="time">{{event.time}}</span><br>              
+                    <span class="location">{{event.location}}</span><br>                    
+                    <span class="description">{{event.description}}</span>
+
+                     <a target="_blank" ng-show="event.fb" class="rsvp" href="{{event.fb}}"><img src="assets/img/fb-logo-white.png"> RSVP</a>
+                 
+             </div>
+             
+            <h3>Past Events</h3>
+            <span class="notice" ng-show="done && !past.length">No events in the last two months.</span>
+            <img class="spinner" ng-show="!done" src="assets/img/spinner.gif">
+            <div ng-repeat="event in past" ng-show="inView" class="fx-zoom-left fx-speed-2000 single-event">
+                    <h4>{{event.summary}}</h4>
                     <span class="time">{{event.time}}</span><br>              
                     <span class="location">{{event.location}}</span><br>                    
                     <span class="description">{{event.description}}</span>
                     
-                    
-
-                     <!--<a href="#/calendar">View Calender &raquo;</a><br><br>-->
-                     <a ng-show="event.fb" class="rsvp" href="{{event.fb}}">RSVP</a>
+                     <a target="_blank" ng-show="event.fb" class="rsvp" href="{{event.fb}}"><img src="assets/img/fb-logo-white.png">Details</a>
                  
-             </div>
-             
+             </div>             
         </div>
       
     </div>
