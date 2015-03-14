@@ -19,7 +19,6 @@ uisControllers.controller('NavCtrl', ['$scope', '$location', '$anchorScroll',
     };    
     
     $scope.gotoContact = function () {
-      console.log("Goto contact");
       $location.hash('contact-form');
       $anchorScroll();
     }
