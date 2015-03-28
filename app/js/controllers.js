@@ -294,7 +294,7 @@ function($scope, ExecutivePage) {
     {
       name: 'Dorothy Chow',
       role: 'Director of Marketing',
-      photo: $scope.defaultPhoto,
+      photo: 'assets/img/exec_dorothy.jpg',
       url: 'https://www.linkedin.com/profile/view?id=296094020'
     },
     {
